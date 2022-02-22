@@ -30,6 +30,10 @@ a {
 .nav-link {
   font-weight: 400;
 }
+.nav-link.active {
+  	background-color: #F1F1F1 !important;
+	color: black !important;
+}
 .card {
   border: none;
 }
@@ -57,12 +61,11 @@ a {
 }
 </style>
 <body>
-  <div class="container mt-5">
 
-    <div class="row">
-      <div class="col">
+	<nav class="text-center shadow-sm py-3 sticky-top navbar navbar-expand-md navbar-light" style="background-color:white; z-index: 10000;">
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs">
+		<div class="mx-auto">
+        <ul class="nav nav-pills text-center">
           <li class="nav-item">
             <a class="nav-link active" data-toggle="tab" href="#about">About</a>
           </li>
@@ -82,14 +85,15 @@ a {
             <a class="nav-link" data-toggle="tab" href="#other">Other Interests</a>
           </li>
         </ul>
-      </div>
-    </div>
+		</div>
+	</nav>
 
+  <div class="container mt-5">
     <div class="row mt-4">
 
       <!-- Profile card -->
       <div class="col-md-6 col-lg-4">
-        <div class="ml-auto shadow-sm mr-auto sticky-top" style="padding:25px; max-width:300px;">
+        <div class="ml-auto sticky-top shadow-sm mr-auto" style="padding:25px; max-width:300px; top:100px;">
           <img class="rounded" src="mido.png" style="max-width:250px;">
           <div class="pt-4 text-left">
             <h6><b>Mahmoud Assran (Mido)</b></h6>
@@ -119,10 +123,11 @@ a {
               <footer class="blockquote-footer">W.H. Auden</footer>
             </blockquote>
             <p>I am currently a PhD student at <a href="https://www.mcgill.ca/about/">McGill University</a> and <a href="https://mila.quebec/en/">Mila, the Quebec AI Institute,</a> advised by Michael Rabbat. I am also a Visiting Researcher at <a href="https://ai.facebook.com/">Facebook AI Research</a> in the Montreal lab. I grew up in the <a href="https://en.wikipedia.org/wiki/Saskatchewan">land of living skies</a>, but have been pursuing my studies (and practicing my french) <a href="https://en.wikipedia.org/wiki/Montreal">out east</a>. My doctoral research is graciously supported through a <a href="https://vanier.gc.ca/en/home-accueil.html">Vanier Canada Graduate Scholarship</a>.</p>
-            <h6 class="section-header"><small>AI Research</small></h6>
-            <p>I am interested in the capability of computers to efficiently develop a perceptual understanding of our world from limited human supervision. To that end, I have focused on deep learning algorithms for self-supervised learning and optimization algorithms for large-scale distributed computing. My research has been featured in several media outlets, including <a href="https://venturebeat.com/2021/04/30/facebook-details-self-supervised-ai-that-can-segment-images-and-videos/">VentureBeat</a>, <a href="https://techcrunch.com/2021/04/30/computer-vision-inches-towards-common-sense-with-facebooks-latest-research/">TechCrunch</a>, and <a href="https://siliconangle.com/2021/04/30/facebooks-dino-enables-self-supervised-learning-computer-vision-ai/">SiliconANGLE</a>. I have also served as a reviewer for numerous machine learning and control conferences and journals, most recently as an expert reviewer for <a href="https://icml.cc/Conferences/2021/Reviewers"><abbr title="International Conference on Machine Learning">ICML</abbr></a>.</p>
             <h6 class="section-header"><small>Youth Education</small></h6>
-            <p>I am also interested in educational learning theories and am the principal founder of <a href="https://youthengagement.github.io/"><abbr title="Youth Engagement Through Engineering">YETE</abbr></a>, a Canadian not-for-profit advancing youth education by fostering a self-guided constructivist approach to learning. We work with students and teachers, in-class, roughly once a week, for their entire semester, and have collaborated with the <a href="https://www.emsb.qc.ca/emsb/about/school-board/about">English Montreal School Board</a> and the <a href="https://www.kecedu.ca/about/message-from-the-director-of-education">Kahnaw&agrave;:ke Education Center</a>. Visit <a href="https://youthengagement.github.io/">our page</a> to learn more.</p>
+            <p>I am interested in educational learning theories and am the principal founder of <a href="https://youthengagement.github.io/"><abbr title="Youth Engagement Through Engineering">YETE</abbr></a>, a Canadian not-for-profit advancing youth education by fostering a self-guided constructivist approach to learning. We work with students and teachers, in-class, roughly once a week, for their entire semester, and have collaborated with the <a href="https://www.emsb.qc.ca/emsb/about/school-board/about">English Montreal School Board</a> and the <a href="https://www.kecedu.ca/about/message-from-the-director-of-education">Kahnaw&agrave;:ke Education Center</a>. Visit <a href="https://youthengagement.github.io/">our page</a> to learn more.</p>
+            <h6 class="section-header"><small>AI Research</small></h6>
+            <p>I am also interested in the capability of computers to efficiently develop a perceptual understanding of our world from limited human supervision. To that end, I have focused on deep learning algorithms for self-supervised learning and optimization algorithms for large-scale distributed computing. My research has been featured in several media outlets, including <a href="https://venturebeat.com/2021/04/30/facebook-details-self-supervised-ai-that-can-segment-images-and-videos/">VentureBeat</a>, <a href="https://techcrunch.com/2021/04/30/computer-vision-inches-towards-common-sense-with-facebooks-latest-research/">TechCrunch</a>, and <a href="https://siliconangle.com/2021/04/30/facebooks-dino-enables-self-supervised-learning-computer-vision-ai/">SiliconANGLE</a>. I have also served as a reviewer for numerous machine learning and control conferences and journals, most recently as an expert reviewer for <a href="https://icml.cc/Conferences/2021/Reviewers"><abbr title="International Conference on Machine Learning">ICML</abbr></a>. Check out my public talk on PAWS for a sense of my current research directions. This work was also accepted as an Oral at ICCV'21.</p>
+			<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0BCb-TsMjXU?start=138" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
 
 
