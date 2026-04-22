@@ -1,613 +1,1171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahmoud (Mido) Assran — Research Scientist</title>
+  <meta name="description" content="Mahmoud (Mido) Assran — Research Scientist at Meta FAIR. Self-supervised representation learning, low-shot prediction." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Mahmoud (Mido) Assran">
-  <meta name="description" content="I am currently a Research Scientist at Meta in Fundamental AI Research (FAIR). I obtained my PhD in Electrical and Computer Engineering from McGill University and Mila, the Quebec AI Institute, under the supervision of Michael Rabbat.">
-  <meta name="keywords" content="Mido Assran, Mahmoud Assran, Meta, Meta AI, Facebook, Facebook AI, Research, FAIR, PhD, McGill University, Mila, Quebec AI, Machine Learning, Deep Learning, Self-Supervised Learning, Montreal, Canada, Saskatoon, Saskatchewan, AI, Artificial Intelligence, Optimization, Gossip Algorithms, Siamese Networks, Semi-Supervised Learning, Vanier Scholarship, NSERC, Open Source, Code, Researcher, Visiting Researcher, Engineering, Electrical Engineering, Computer Engineering, Youth Engagement Through Engineering, YETE, Education, Learning, Talks, Python, PyTorch, GPU, SLURM">
-  <meta name="audience" content="all">
+    :root {
+      --cream: #f8f6f1;
+      --ink: #1a1a18;
+      --ink-muted: #5a5a56;
+      --ink-faint: #9a9a94;
+      --accent: #2a4a7f;
+      --accent-light: #e8eef7;
+      --rule: #dedad2;
+      --serif: 'EB Garamond', Georgia, serif;
+      --mono: 'DM Mono', 'Courier New', monospace;
+      --max-w: 860px;
+    }
 
-  <meta property="og:title" content="Mahmoud (Mido) Assran">
-  <meta property="og:description" content="I am currently a Research Scientist at Meta in Fundamental AI Research (FAIR). I obtained my PhD in Electrical and Computer Engineering from McGill University and Mila, the Quebec AI Institute, under the supervision of Michael Rabbat.">
-  <meta property="og:image" content="http:/midoassran.ca/mido.jpeg">
+    html { scroll-behavior: smooth; }
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    a { color: inherit; }
 
-  <script src="repo-card.js"></script>
+    /* ─── Navigation ─── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
+    .nav {
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      color: var(--ink-muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ─── Hero ─── */
+    .hero {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 72px 40px 60px;
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .hero-text h1 {
+      font-size: 44px;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      letter-spacing: -0.015em;
+    }
+
+    .hero-text .role {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: 0.09em;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero-text .bio {
+      font-size: 17px;
+      color: var(--ink-muted);
+      max-width: 520px;
+      margin-bottom: 12px;
+    }
+
+    .hero-text .media-note {
+      font-size: 15px;
+      color: var(--ink-faint);
+      font-style: italic;
+      margin-bottom: 28px;
+    }
+
+    .hero-text .media-note a {
+      color: var(--ink-faint);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .hero-text .media-note a:hover { color: var(--accent); }
+
+    .hero-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+      transition: opacity 0.15s;
+    }
+
+    .hero-links a:hover { opacity: 0.65; }
+
+    .hero-photo {
+      width: 180px;
+      height: 224px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      filter: grayscale(12%);
+      display: block;
+    }
+
+    /* ─── Quote strip ─── */
+    .quote-strip {
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .quote-strip-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 20px 40px;
+    }
+
+    .quote-strip blockquote {
+      font-style: italic;
+      font-size: 16px;
+      color: var(--ink-faint);
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .quote-strip cite {
+      font-style: normal;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--ink-faint);
+      white-space: nowrap;
+    }
+
+    /* ─── Generic section ─── */
+    .section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 56px 40px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 32px;
+    }
+
+    /* ─── Stale notice ─── */
+    .stale-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fdf6e3;
+      border: 1px solid #e8d9a0;
+      border-radius: 3px;
+      padding: 7px 14px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: #7a6520;
+      letter-spacing: 0.04em;
+      margin-bottom: 36px;
+      line-height: 1.5;
+    }
+
+    .stale-note a {
+      color: #7a6520;
+      text-decoration: underline;
+    }
+
+    /* ─── Publications ─── */
+    .pub-list { display: flex; flex-direction: column; }
+
+    .pub-item {
+      display: block;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .pub-item:first-child { border-top: 1px solid var(--rule); }
+
+    .pub-venue {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pub-badge {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 2px;
+      padding: 1px 7px;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .pub-title {
+      font-size: 16.5px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .pub-title a {
+      text-decoration: none;
+      color: inherit;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .pub-title a:hover { border-color: var(--ink); }
+
+    .pub-authors {
+      font-size: 13.5px;
+      color: var(--ink-faint);
+      line-height: 1.5;
+    }
+
+    .pub-authors strong {
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    /* ─── Graduate Students ─── */
+    .students-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .student-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .student-item:first-child { border-top: 1px solid var(--rule); }
+
+    .student-initials {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .student-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .student-meta {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .student-topic {
+      font-size: 14px;
+      color: var(--ink-faint);
+    }
+
+    /* ─── Open-source code ─── */
+    .code-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .code-item {
+      padding: 20px 20px 20px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .code-item:nth-child(1),
+    .code-item:nth-child(2) {
+      border-top: 1px solid var(--rule);
+    }
+
+    .code-item:nth-child(even) {
+      padding-left: 28px;
+      border-left: 1px solid var(--rule);
+    }
+
+    .star-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--ink-faint);
+      letter-spacing: 0.04em;
+    }
+
+    .star-badge::before {
+      content: '★';
+      font-size: 10px;
+      color: var(--ink-faint);
+    }
+
+    .fork-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--ink-faint);
+      letter-spacing: 0.04em;
+    }
+
+    .fork-badge::before {
+      content: '⑂';
+      font-size: 11px;
+      color: var(--ink-faint);
+    }
+    .code-list { display: flex; flex-direction: column; gap: 14px; }
+
+    .code-item {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .code-item:first-child { border-top: 1px solid var(--rule); }
+
+    .code-name {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .code-name:hover { text-decoration: underline; }
+
+    .code-desc {
+      font-size: 15px;
+      color: var(--ink-muted);
+    }
+
+    /* ─── Awards ─── */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .award-item:nth-child(1),
+    .award-item:nth-child(2) {
+      border-top: 1px solid var(--rule);
+    }
+
+    .award-item {
+      padding: 20px 20px 20px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .award-item:nth-child(even) {
+      padding-left: 28px;
+      border-left: 1px solid var(--rule);
+    }
+
+    .award-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 3px;
+      line-height: 1.35;
+    }
+
+    .award-org {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.04em;
+    }
+
+    .award-amount {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      margin-top: 5px;
+    }
+
+    .award-desc {
+      font-size: 13px;
+      color: var(--ink-faint);
+      line-height: 1.55;
+      margin-top: 6px;
+    }
+
+    /* ─── YETE ─── */
+    .yete-block {
+      border-left: 2px solid var(--accent);
+      padding-left: 26px;
+    }
+
+    .yete-block p {
+      font-size: 16.5px;
+      color: var(--ink-muted);
+      margin-bottom: 16px;
+      max-width: 580px;
+    }
+
+    .yete-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+      transition: opacity 0.15s;
+    }
+
+    .yete-link:hover { opacity: 0.65; }
+
+    /* ─── Footer ─── */
+    .footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 24px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer span {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 680px) {
+
+      /* Nav — hide text links, show hamburger-free condensed version */
+      .nav-inner { padding: 12px 20px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 10px; letter-spacing: 0.05em; }
+
+      /* Hero — stack vertically, photo on top */
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 36px 20px 40px;
+        gap: 24px;
+      }
+
+      .hero-photo {
+        width: 120px;
+        height: 150px;
+        order: -1;
+      }
+
+      .hero-text h1 { font-size: 32px; }
+      .hero-text .role { font-size: 10.5px; margin-bottom: 18px; }
+      .hero-text .bio { font-size: 16px; }
+
+      .hero-links {
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .hero-links a { font-size: 10px; }
+
+      /* Quote */
+      .quote-strip-inner { padding: 16px 20px; }
+      .quote-strip blockquote { font-size: 14.5px; gap: 8px; }
+
+      /* Sections */
+      .section { padding: 40px 20px; }
+      .section-label { margin-bottom: 24px; }
+
+      /* Stale note */
+      .stale-note { font-size: 10px; padding: 6px 10px; }
+
+      /* Publications — full width single column */
+      .pub-item { padding: 18px 0; }
+      .pub-title { font-size: 15.5px; }
+      .pub-authors { font-size: 12.5px; }
+
+      /* Students */
+      .student-item { gap: 14px; padding: 16px 0; }
+      .student-initials { width: 36px; height: 36px; font-size: 11px; }
+
+      /* Code grid — single column */
+      .code-grid { grid-template-columns: 1fr; }
+      .code-item { padding: 16px 0; }
+      .code-item:nth-child(even) { padding-left: 0; border-left: none; }
+      .code-item:nth-child(2) { border-top: none; }
+
+      /* Awards grid — single column */
+      .awards-grid { grid-template-columns: 1fr; }
+      .award-item { padding: 16px 0; }
+      .award-item:nth-child(even) { padding-left: 0; border-left: none; }
+      .award-item:nth-child(2) { border-top: none; }
+      .award-name { font-size: 14px; }
+      .award-desc { font-size: 12.5px; }
+
+      /* Footer */
+      .footer-inner {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+    }
+
+    /* Extra small — very narrow phones */
+    @media (max-width: 400px) {
+      .nav-links { gap: 8px; }
+      .nav-links li:nth-child(n+4) { display: none; }
+      .hero-text h1 { font-size: 28px; }
+    }
+  </style>
 </head>
-<style>
-body{
-  font: 300 14px Charter,Georgia,serif;
-}
-.address {
-  line-height: 1.4;
-}
-p {
-  font: 300 14px Charter,Georgia,serif;
-  line-height: 1.5;
-}
-a {
-  color: #008acb;
-}
-.nav-link {
-  font-weight: 400;
-}
-.nav-link.active {
-    background-color: #F1F1F1 !important;
-  color: black !important;
-}
-.card {
-  border: none;
-}
-.card-footer {
-  background: white;
-  font-size: 13px;
-  border: none;
-}
-.card-header{
-  background: white;
-  border: none;
-}
-.card-columns {
-  column-count: 2;
-}
-@media (max-width: 991.98px) {
-  .card-columns {
-    column-count: 1;
-  }
-}
-@media (max-width: 767.98px) {
-  .col-md-6 {
-    margin: 25px 0;
-  }
-}
-</style>
 <body>
 
-  <nav class="text-center shadow-sm py-3 sticky-top navbar navbar-expand-md navbar-light" style="background-color:white; z-index: 10000;">
-        <!-- Nav tabs -->
-    <div class="mx-auto">
-        <ul class="nav nav-pills text-center">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#pubs">Selected Publications</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#code">Open-Source Code</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#awards">Honours & Awards</a>
-          </li>
+  <!-- Navigation -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a class="nav-name" href="#about">M. Assran</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#pubs">Publications</a></li>
+          <li><a href="#students">Students</a></li>
+          <li><a href="#code">Code</a></li>
+          <li><a href="#awards">Awards</a></li>
         </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="about" aria-label="About">
+    <div class="hero-text">
+      <h1>Mahmoud Assran</h1>
+      <p class="role">Research Scientist &middot; Meta FAIR</p>
+      <p class="bio">
+        I work on self-supervised learning and world models, with a focus on
+        <strong>Joint-Embedding Predictive Architectures (JEPA)</strong> — a framework for learning
+        abstract representations of the world by predicting in latent space rather than pixel space.
+        My work on I-JEPA and V-JEPA has been covered by
+        <a href="https://www.quantamagazine.org/how-one-ai-model-creates-a-physical-intuition-of-its-environment-20251003/" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">Quanta Magazine</a>,
+        <a href="https://www.cnbc.com/2025/06/11/meta-launches-ai-world-model-to-advance-robotics-self-driving-cars.html" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">CNBC</a>,
+        <a href="https://www.reuters.com/technology/meta-releases-human-like-ai-image-creation-model-2023-06-13/" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">Reuters</a>,
+        <a href="https://fortune.com/2023/06/14/metas-chief-a-i-scientist-calls-a-i-doomers-preposterous-and-predicts-llms-are-just-a-passing-fad/" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">Fortune</a>,
+        <a href="https://www.lapresse.ca/affaires/techno/2023-06-13/un-nouveau-modele-d-intelligence-artificielle-propose-par-meta.php" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">La Presse</a>, and others.
+        I completed my PhD (ECE) at McGill University and Mila, the Quebec AI Institute, where I was supported by a <a href="https://vanier.gc.ca/en/home-accueil.html" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">Vanier Scholarship</a>.
+      </p>
+      <p class="bio" style="margin-top:14px;">
+        I am also the founder of <a href="https://youthengagement.github.io/" target="_blank" rel="noopener" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">YETE</a>
+        (Youth Engagement Through Engineering), a Canadian not-for-profit advancing youth education.
+		We have collaborated with the
+        <a href="https://www.emsb.qc.ca/emsb/about/school-board/about" target="_blank" rel="noopener" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">English Montreal School Board</a>
+        and the
+        <a href="https://www.kecedu.ca/about/message-from-the-director-of-education" target="_blank" rel="noopener" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">Kahnawà:ke Education Center</a>
+		to foster a self-guided constructivist approach to learning.
+		</p>
+      <p class="meta-note" style="font-size:15px;color:var(--ink-faint);margin-bottom:28px;">
+        massran at meta dot com
+      </p>
+      <div class="hero-links">
+        <a href="https://scholar.google.com/citations?user=gcQTTvkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://ai.facebook.com/people/mido-assran/" target="_blank" rel="noopener">Meta FAIR</a>
+        <a href="mailto:massran@meta.com">Email</a>
+      </div>
     </div>
-  </nav>
+    <div class="hero-photo">
+      <img src="mido.jpeg" alt="Mahmoud (Mido) Assran" />
+    </div>
+  </section>
 
-  <div class="container mt-5">
-    <div class="row mt-4">
+  <!-- Quote -->
+  <div class="quote-strip">
+    <div class="quote-strip-inner">
+      <blockquote>
+        <span>We're all here on this earth to help others; what on earth the others are here for, I have no idea.</span>
+        <cite>&mdash;&thinsp;W.H. Auden</cite>
+      </blockquote>
+    </div>
+  </div>
 
-      <!-- Profile card -->
-      <div class="col-md-6 col-lg-4">
-        <div class="ml-auto sticky-top mr-auto" style="padding:25px; max-width:300px; top:100px;">
-          <img class="rounded" src="mido.jpeg" style="max-width:250px;" alt="Mahmoud (Mido) Assran">
-          <div class="pt-4 text-left">
-            <h6><b>Mahmoud Assran (Mido)</b></h6>
-            <div class="address">
-              Research  Scientist<br/>
-              @ Meta in Fundamental AI Research<br/>
-              massran at meta dot com<br/>
-              <a target="_blank" href="https://scholar.google.com/citations?user=gcQTTvkAAAAJ&amp;hl=en">Google Scholar</a> /
-              <a target="_blank" href="https://ai.facebook.com/people/mido-assran/">Meta</a>
-            </div>
-          </div>
+  <!-- Publications -->
+  <section class="section" id="pubs">
+    <p class="section-label">Selected Publications</p>
+    <div class="stale-note">
+      Visit <a href="https://scholar.google.com/citations?user=gcQTTvkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> for full list of up-to-date publications.
+    </div>
+
+    <div class="pub-list">
+
+      <!-- V-JEPA 2 -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">
+            arXiv 2025
+          </p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2506.09985" target="_blank" rel="noopener">
+              V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning
+            </a>
+          </p>
+          <p class="pub-authors">
+            <strong>M. Assran</strong>, A. Bardes, D. Fan, Q. Garrido, R. Howes, M. Komeili, M. Muckley, A. Rizvi, C. Roberts, K. Sinha, A. Zholus, &hellip;, Y. LeCun, M. Rabbat, N. Ballas
+          </p>
         </div>
       </div>
 
-      <!-- Body tabs -->
-      <div class="col-md-6 col-lg-7">
-        <div class="tab-content">
-
-          <!-- [About] -->
-          <div class="tab-pane container active" id="about">
-            <blockquote class="blockquote text-center">
-              <p class="mb-0"><i>We're all here on this earth to help others; what on earth the others are here for, I have no idea.</i></p>
-              <footer class="blockquote-footer">W.H. Auden</footer>
-            </blockquote>
-            <p>
-              I am currently a Research Scientist at <a href="https://ai.facebook.com/">Meta</a> in Fundamental AI Research (FAIR). 
-              Previously, I obtained my PhD in Electrical and Computer Engineering from <a href="https://www.mcgill.ca/about/">McGill University</a> and <a href="https://mila.quebec/en/">Mila, the Quebec AI Institute</a>, where I was primarily advised by Michael Rabbat, and graciously supported through a <a href="https://vanier.gc.ca/en/home-accueil.html">Vanier Scholarship</a>.
-              My objective is to enable computers to develop common sense perceptual models of our world &mdash; to that end, my current research focuses on advancing self-supervised representation learning and low-shot prediction.
-              In the past, I worked on parallelizing deep reinforcement learning, and large-scale numerical optimization.
-            </p><p>
-            <i>Media Coverage.</i>
-            My research on self-supervised learning has been featured in several media outlets, including <a href="https://www.quantamagazine.org/how-one-ai-model-creates-a-physical-intuition-of-its-environment-20251003/">Quanta Magazine</a>, <a href="https://www.lapresse.ca/affaires/techno/2023-06-13/un-nouveau-modele-d-intelligence-artificielle-propose-par-meta.php">La Presse</a>, <a href="https://www.reuters.com/technology/meta-releases-human-like-ai-image-creation-model-2023-06-13/">Reuters</a>, <a href="https://www.cnbc.com/2025/06/11/meta-launches-ai-world-model-to-advance-robotics-self-driving-cars.html">CNBC</a>, and <a href="https://fortune.com/2023/06/14/metas-chief-a-i-scientist-calls-a-i-doomers-preposterous-and-predicts-llms-are-just-a-passing-fad/">Fortune</a>.
-            I was also fortunate to have a featured profile piece in the <a href="https://www.rsipvision.com/ICCV2021-Friday/8/">ICCV daily</a> magazine during my PhD.
-            </p><p>
-              <i>Community Service.</i> I served as a reviewer for numerous academic conferences and journals, including Science, TMLR, Automatica, CVPR, ICCV, ECCV, NeurIPS, ICML, ICLR, AAAI, and several IEEE Transactions.
-              I also served as an expert reviewer for <a href="https://icml.cc/Conferences/2021/Reviewers"><abbr title="International Conference on Machine Learning">ICML</abbr></a> and <a href="https://neurips.cc/"><abbr title="Neural Information Processing system">NeurIPS</abbr></a>, two of the premier conferences in the field of AI, and received <i>Best Reviewer</i> awards at NeurIPS'20, ICML'20, ICML'21, and AAAI'20 during my PhD. 
-            </p>
-            <hr><br/>
-            <h6 class="section-header"><small>Youth Education</small></h6>
-            <p>I am also interested in educational learning theories and am the founder of <a href="https://youthengagement.github.io/"><abbr title="Youth Engagement Through Engineering">YETE</abbr></a>, a Canadian not-for-profit advancing youth education by fostering a self-guided constructivist approach to learning. We work with students and teachers, in-class, roughly once a week, for their entire semester, and have collaborated with the <a href="https://www.emsb.qc.ca/emsb/about/school-board/about">English Montreal School Board</a> and the <a href="https://www.kecedu.ca/about/message-from-the-director-of-education">Kahnaw&agrave;:ke Education Center</a>. Visit <a href="https://youthengagement.github.io/">our page</a> to learn more.</p>
-            <hr><br/>
-            <!-- <div class="text-left pr-5">
-               <h5 class="section-header">Recent Talks</h5>
-               <div class="caption" style="font-size:12px;">
-                 <span style="font-weight:bold;">TWIML Podcast.</span>
-                 Guest on the popular TWIML prodcast discussing my work on Joint-Embedding Predictive Architectures (JEPA).
-               </div>
-               <br/>
-               <iframe
-                 style="border-radius:4px;"
-                 width="100%" height="315"
-                 src="https://www.youtube.com/embed/q-vCGIQDoPc?si=4DFY9OPl2--05Mxl"
-                 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-               <br/>
-               <br/>
-               <div class="caption" style="font-size:12px;">
-                 <span style="font-weight:bold;">Columbia University, NYC.</span>
-                 Invited talk discussing my work on label-efficient representation learning (PAWS and MSN) at the Vision, Interaction, Graphics, and Robotics center at Columbia University.
-               </div>
-               <br/>
-			   <iframe
-			 	  style="border-radius:4px;"
-                   width="100%" height="315"
-                   src="https://www.youtube.com/embed/7BhH-EsG3F8?controls=0"
-                   title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-               <br/>
-             </div>
-            -->
-          </div>
-
-
-          <!-- [Selected pubs] -->
-          <div class="tab-pane container fade" id="pubs">
-            <blockquote class="blockquote text-center">
-              <p class="mb-0"><i>How is it possible to think new thoughts? What is creativity and can science explain it?</i></p>
-              <footer class="blockquote-footer">M. Boden</footer>
-              <br/>
-              <p class="mb-0">
-                This page is currently out of date. For a full list of up-to-date publications visit <a target="_blank" href="https://scholar.google.com/citations?user=gcQTTvkAAAAJ&amp;hl=en">google scholar</a>.
-              </p>
-            </blockquote>
-
-            <div class="card-columns">
-
-              <!-- MSN -->
-              <div class="card shadow-sm">
-                <div class="card-header">
-                  <small><u>Mahmoud Assran</u>, Mathilde Caron, Ishan Misra, Piotr Bojanowski, Florian Bordes, Pascal Vincent, Armand Joulin, Michael Rabbat, Nicolas Ballas</small>
-                </div>
-                <img class="card-img-top" src="msn_buddy.png" alt="Masked Siamese Networks">
-                <div class="card-body">
-                  <h5 class="card-title">MSN</h5>
-                  <p class="card-title">Masked Siamese Networks for Label-Efficient Learning</p>
-                </div>
-                <div class="card-footer">
-                  <p><a href="https://arxiv.org/pdf/2204.07141.pdf">ECCV 2022</a></p>
-                </div>
-              </div>
-
-
-              <!-- PAWS -->
-              <div class="card shadow-sm">
-                <div class="card-header">
-                  <small><u>Mahmoud Assran</u>, Mathilde Caron, Ishan Misra, Piotr Bojanowski, Armand Joulin, *Nicolas Ballas, *Michael Rabbat</small>
-                </div>
-                <img class="card-img-top" src="paws.png" alt="PAWS">
-                <div class="card-body">
-                  <h5 class="card-title">PAWS</h5>
-                  <p class="card-title">Semi-Supervised Learning of Visual Features by Non-Parametrically Predicting Views Assignments with Support Samples</p>
-                </div>
-                <div class="card-footer">
-                  <p><a href="https://arxiv.org/pdf/2104.13963.pdf">ICCV 2021 <small>(Oral, Top 3%)</small></a></p>
-                </div>
-              </div>
-
-              <!-- AGP -->
-              <div class="card shadow-sm">
-                <div class="card-header">
-                  <small><u>Mahmoud Assran</u>, Michael Rabbat</small>
-                </div>
-                <img class="card-img-top p-2" src="agp.png" alt="Asynchronous Gradient Push">
-                <div class="card-body">
-                  <h5 class="card-title">Asynchronous Gradient Push</h5>
-                  <p class="card-text">Asynchronous Gradient Push: Fast, Robust, and Scalable Multi-Agent Optimization</p>
-                </div>
-                <div class="card-footer">
-                  <p><a href="https://arxiv.org/pdf/1803.08950.pdf">IEEE Trans. Automatic Control 2021</a></p>
-                </div>
-              </div>
-
-              <!-- SuNCEt -->
-              <div class="card shadow-sm">
-                <div class="card-header">
-                  <small><u>Mahmoud Assran</u>, Nicolas Ballas, Lluis Castrejon, Michael Rabbat</small>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">SuNCEt</h5>
-                  <p class="card-text">Supervision Accelerates Pretraining in Contrastive Semi-Supervised Learning of Visual Representations</p>
-                </div>
-                <div class="card-footer">
-                  <p><a href="https://arxiv.org/pdf/2006.10803.pdf">NeurIPS SSL Workshop 2020</a></p>
-                </div>
-              </div>
-
-              <!-- Nesterov -->
-              <div class="card shadow-sm">
-                <div class="card-header">
-                  <small><u>Mahmoud Assran</u>, Michael Rabbat</small>
-                </div>
-                <img class="card-img-top pt-2" src="nasg.png" alt="Nesterov Acceleration">
-                <div class="card-body">
-                  <h5 class="card-title">Nesterov Acceleration Theory</h5>
-                  <p class="card-text">On the Convergence of Nesterov's Accelerated Gradient Method in Stochastic Settings</p>
-                </div>
-                <div class="card-footer">
-                  <p><a href="https://arxiv.org/pdf/2002.12414.pdf">ICML 2020</a></p>
-                </div>
-              </div>
-
-              <!-- Advances -->
-              <div class="card shadow-sm">
-                <div class="card-header">
-                  <small><u>Mahmoud Assran</u>, Arda Aytekin, Hamid Feyzmahdavia, Mikael Johansson, Michael Rabbat</small>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Asynchronous Optimization Review</h5>
-                  <p class="card-text">Advances in Asynchronous Parallel and Distributed Optimization</p>
-                </div>
-                <div class="card-footer">
-                  <p><a href="https://arxiv.org/pdf/2006.13838.pdf">Proceedings of the IEEE 2020</a></p>
-                </div>
-              </div>
-
-              <!-- GALA -->
-              <div class="card shadow-sm">
-                <div class="card-header">
-                  <small><u>Mahmoud Assran</u>, Joshua Romoff, Nicolas Ballas, Joelle Pineau, Michael Rabbat</small>
-                </div>
-                <img class="card-img-top p-2" src="gala.png" alt="GALA">
-                <div class="card-body">
-                  <h5 class="card-title">GALA</h5>
-                  <p class="card-text">Gossip-based Actor-Learner Architectures for Deep Reinforcement Learning</p>
-                </div>
-                <div class="card-footer">
-                  <p><a href="https://arxiv.org/pdf/1906.04585.pdf">NeurIPS 2019</a></p>
-                </div>
-              </div>
-
-              <!-- SGP -->
-              <div class="card shadow-sm">
-                <div class="card-header">
-                  <small><u>Mahmoud Assran</u>, Nicolas Loizou, Nicolas Ballas, Michael Rabbat</small>
-                </div>
-                <img class="card-img-top p-2" src="sgp.png" alt="Stochastic Gradient Push">
-                <div class="card-body">
-                  <h5 class="card-title">Stochastic Gradient Push</h5>
-                  <p class="card-text">Stochastic Gradient Push for Distributed Deep Learning</p>
-                </div>
-                <div class="card-footer">
-                  <p><a href="https://arxiv.org/pdf/1811.10792.pdf">ICML 2019</a></p>
-                </div>
-              </div>
-
-              <!-- Empirical Comparison -->
-              <div class="card shadow-sm">
-                <div class="card-header">
-                  <small><u>Mahmoud Assran</u>, Michael Rabbat</small>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Large-Scale Multi-Agent Optimization</h5>
-                  <p class="card-text">An Empirical Comparison of Multi-Agent Optimization Algorithms</p>
-                </div>
-                <div class="card-footer">
-                  <p><a href="http://faculty.sist.shanghaitech.edu.cn/faculty/luoxl/class/2017Fall_EE251/GlobalSIP2017/pdfs/0000573.pdf">IEEE GlobalSIP 2017</a></p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-
-          <!-- [Code] -->
-          <div class="tab-pane conttainer fade" id="code">
-            <blockquote class="blockquote text-center">
-              <blockquote class="blockquote text-center">
-                <p class="mb-0"><i>Reproducibility is a minimum necessary condition for a finding to be believable and informative.</i></p>
-                <footer class="blockquote-footer">K. Bollen</footer>
-              </blockquote>
-              <p class="mb-0">Open-source code accompanying peer-reviewed research papers.</p>
-            </blockquote>
-
-            <div class="row">
-              <div class="col-lg-6 mt-2 repo-card" data-repo="facebookresearch/vjepa2" data-alt="V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning"></div>
-              <div class="col-lg-6 mt-2 repo-card" data-repo="facebookresearch/jepa" data-alt="Revisiting Feature Prediction for Learning Visual Representations from Video"></div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 mt-2 repo-card" data-repo="facebookresearch/ijepa" data-alt="Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture"></div>
-              <div class="col-lg-6 mt-2 repo-card" data-repo="facebookresearch/msn" data-alt="Masked Siamese Networks for Label-Efficient Learning"></div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 mt-2 repo-card" data-repo="facebookresearch/stochastic_gradient_push" data-alt="Stochastic Gradient Push for Distributed Deep Learning"></div>
-              <div class="col-lg-6 mt-2 repo-card" data-repo="facebookresearch/suncet" data-alt="Semi-Supervised Learning of Visual Features with PAWS"></div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 mt-2 repo-card" data-repo="midoassran/maopy" data-alt="Multi-Agent Optimization in Python using mpi4py"></div>
-              <div class="col-lg-6 mt-2 repo-card" data-repo="facebookresearch/gala" data-alt="Gossip-based Actor-Learner Architectures for Deep Reinforcement Learning"></div>
-            </div>
-          </div>
-
-
-          <!-- [Awards] -->
-          <div class="tab-pane container fade" id="awards">
-            <blockquote class="blockquote text-center">
-              <p class="mb-0"><i>I have been salesman of the month for 13 of the last 12 months. You heard me right. I did so well last February that Corporate gave me two plaques in lieu of a pay raise.</i></p>
-              <footer class="blockquote-footer">D. Schrute</footer>
-            </blockquote>
-
-            <div class="card-columns">
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Vanier Scholarship</h6>
-                      <p><i>NSERC &mdash; $150,000</i></p>
-                      <p class="card-text">
-                        The Vanier CGS plays an important role in fulfilling the Government of Canada’s Science and Technology strategy to promote the development and application of leading-edge knowledge and attract and retain the world’s top graduate students.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Alexander Graham Bell Scholarship</h6>
-                      <p><i>NSERC &mdash; $105,000</i></p>
-                      <p class="card-text">Awarded to the top-ranked doctoral students in Canada, to ensure a reliable supply of qualified personnel to meet the needs of Canada’s knowledge economy.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Les Vadasz Doctoral Fellowship</h6>
-                      <p><i>McGill University&mdash; $48,000</i></p>
-                      <p class="card-text">Established in 2006 by the Vadasz Family Foundation to recruit outstanding students intothe Faculty of Engineering’s doctoral degree program.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>McGill Engineering Doctoral Award</h6>
-                      <p><i>McGill University&mdash; $72,000</i></p>
-                      <p class="card-text">This award aims to recruit the best and brightest new doctoral students from all over the world.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Graduate Mobility Award</h6>
-                      <p><i>McGill University</i></p>
-                      <p class="card-text">To support student engagement in international research experiences outside of McGill.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Undergraduate Student Masters Award</h6>
-                      <p><i>McGill University&mdash; $35,000</i></p>
-                      <p class="card-text">Competitive recruitment funding to assist in attracting and retaining high caliber undergraduate students with demonstrated academic excellence, as well as applied research experience, into the Faculty’s research Graduate Programs.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Graduate Excellence Fellowship</h6>
-                      <p><i>McGill University</i></p>
-                      <p class="card-text">Nomination for this award is at the discretion of the Department or School. Selection forthis award is based on the excellence of a student’s academic and research record.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Rhodes Scholar Finalist</h6>
-                      <p><i>University of Oxford</i></p>
-                      <p class="card-text">One of 12 finalists selected for three available Rhodes Scholarships, an international post-graduate scholarship to study at the University of Oxford.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Ian McLachlin Prize for Entrepreneurship in Engineering</h6>
-                      <p><i>McGill University</i></p>
-                      <p class="card-text">Established in 1998 by Ian McLachlin, B.Eng. 1960, to encourage Engineering students to undertake Entrepreneurial Studies. Awarded by the Faculty of Engineering.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Dean's Honour List</h6>
-                      <p><i>McGill University</i></p>
-                      <p class="card-text">The Dean’s Honour List for undergraduate students recognizes those who rank in the top 10% of the Faculty of Engineering.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Les Vadasz Award in Engineering</h6>
-                      <p><i>McGill University</i></p>
-                      <p class="card-text">Awarded annually, by the Faculty of Engineering, to a student based on high academic standing with a preference given to an interest in, and contribution towards, engineering sustainability and/or design.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Accenture Prize in Engineering and Science</h6>
-                      <p><i>McGill University</i></p>
-                      <p class="card-text">Awarded by the Faculty Scholarships Committees, upon recommendation of the respective departments, on the basis of academic excellence and demonstrated leadership qualities.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Faculty of Engineering Scholarship</h6>
-                      <p><i>McGill University</i></p>
-                      <p class="card-text">Awarded based on academic achievement to students in the top 5% of the Faculty. Granted by the Faculty of Engineering ScholarshipsCommittee based on good academic standing.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Undergraduate Student Research Award</h6>
-                      <p><i>NSERC</i></p>
-                      <p class="card-text">Undergraduate Student Research Award, granted by the university and the Natural Sciences and Engineering Research Council of Canada, based on the student’s academic record, research aptitude, and merit.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>John Howard Ambrose Award</h6>
-                      <p><i>McGill University</i></p>
-                      <p class="card-text">Awarded by the Faculty of Engineering Scholarships Committee on the basis of merit to engineering students.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>IEEE Signal Processing Society Winter School Scholarship</h6>
-                      <p><i>IEEE Signal Processing Society</i></p>
-                      <p class="card-text">Awarded by the IEEE Signal Processing Society on the basis of merit to engineering students.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>John Green Memorial Award</h6>
-                      <p><i>McGill University</i></p>
-                      <p class="card-text">For the student with highest standing in the penultimate year of Honours Electrical Engineering. Awarded on the recommendation of the Department.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>1st Place Waterloo Hardware Hackathon</h6>
-                      <p><i>Google, O'Reilly, PCH &mdash; $55,000</i></p>
-                      <p class="card-text">(Awarded $5000 cash scholarship and $50,000 in product services; e.g., manufacturing, incorporation fees, etc.). Developed a solution and a prototype to provide Internet access to developing communities by utilizing a distributed data mesh with an offline search engine.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>Christie Steinmetz Award</h6>
-                      <p><i>McGill University</i></p>
-                      <p class="card-text">Awarded to a second year student in Electrical Engineering on the basis of academicperformance and demonstration of exceptional promise as an engineer. Awarded on therecommendation of the Department.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div class="media pb-3">
-                    <div class="media-body">
-                      <h6>McCaig Family Scholarship in Engineering</h6>
-                      <p><i>McGill University</i></p>
-                      <p class="card-text">Awarded by the Faculty of Engineering to undergraduate students who have completed at least one year of the B.Eng. program on the basis of high academic standing.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
+      <!-- I-JEPA -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">
+            CVPR 2023
+          </p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2301.08243" target="_blank" rel="noopener">
+              Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+            </a>
+          </p>
+          <p class="pub-authors">
+            <strong>M. Assran</strong>, Q. Duval, I. Misra, P. Bojanowski, P. Vincent, M. Rabbat, Y. LeCun, N. Ballas
+          </p>
+        </div>
       </div>
+
+      <!-- V-JEPA 1 / Revisiting Feature Prediction -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">TMLR 2024</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2404.08471" target="_blank" rel="noopener">
+              Revisiting Feature Prediction for Learning Visual Representations from Video
+            </a>
+          </p>
+          <p class="pub-authors">
+            A. Bardes, Q. Garrido, J. Ponce, X. Chen, M. Rabbat, Y. LeCun, <strong>*M. Assran</strong>, *N. Ballas
+          </p>
+        </div>
+      </div>
+
+      <!-- IWM -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">ICML 2024</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2403.00504" target="_blank" rel="noopener">
+              Learning and Leveraging World Models in Visual Representation Learning
+            </a>
+          </p>
+          <p class="pub-authors">
+            Q. Garrido, <strong>M. Assran</strong>, N. Ballas, A. Bardes, L. Najman, Y. LeCun
+          </p>
+        </div>
+      </div>
+
+      <!-- DINOv2 -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">TMLR 2024</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2304.07193" target="_blank" rel="noopener">
+              DINOv2: Learning Robust Visual Features without Supervision
+            </a>
+          </p>
+          <p class="pub-authors">
+            M. Oquab, T. Darcet, T. Moutakanni, H. Vo, &hellip;, <strong>M. Assran</strong>, N. Ballas, &hellip;, P. Bojanowski
+          </p>
+        </div>
+      </div>
+
+      <!-- Hidden Uniform Cluster Prior -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">ICLR 2023</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2210.07277" target="_blank" rel="noopener">
+              The Hidden Uniform Cluster Prior in Self-Supervised Learning
+            </a>
+          </p>
+          <p class="pub-authors">
+            <strong>M. Assran</strong>, R. Balestriero, Q. Duval, F. Bordes, I. Misra, P. Bojanowski, P. Vincent, M. Rabbat, N. Ballas
+          </p>
+        </div>
+      </div>
+
+      <!-- MSN -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">ECCV 2022</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/pdf/2204.07141.pdf" target="_blank" rel="noopener">
+              Masked Siamese Networks for Label-Efficient Learning
+            </a>
+          </p>
+          <p class="pub-authors">
+            <strong>M. Assran</strong>, M. Caron, I. Misra, P. Bojanowski, F. Bordes,
+            P. Vincent, A. Joulin, M. Rabbat, N. Ballas
+          </p>
+        </div>
+      </div>
+
+      <!-- PAWS -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">
+            ICCV 2021
+            <span class="pub-badge">Oral &middot; Top 3%</span>
+          </p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/pdf/2104.13963.pdf" target="_blank" rel="noopener">
+              Semi-Supervised Learning of Visual Features by Non-Parametrically Predicting View Assignments with Support Samples
+            </a>
+          </p>
+          <p class="pub-authors">
+            <strong>M. Assran</strong>, M. Caron, I. Misra, P. Bojanowski, A. Joulin,
+            *N. Ballas, *M. Rabbat
+          </p>
+        </div>
+      </div>
+
+      <!-- Nesterov -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">ICML 2020</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/pdf/2002.12414.pdf" target="_blank" rel="noopener">
+              On the Convergence of Nesterov's Accelerated Gradient Method in Stochastic Settings
+            </a>
+          </p>
+          <p class="pub-authors">
+            <strong>M. Assran</strong>, A. Aytekin, H. Feyzmahdavian, M. Johansson, M. Rabbat
+          </p>
+        </div>
+      </div>
+
+      <!-- GALA -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">NeurIPS 2019</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/pdf/1906.04585.pdf" target="_blank" rel="noopener">
+              Gossip-based Actor-Learner Architectures for Deep Reinforcement Learning
+            </a>
+          </p>
+          <p class="pub-authors">
+            <strong>M. Assran</strong>, J. Romoff, N. Ballas, J. Pineau, M. Rabbat
+          </p>
+        </div>
+      </div>
+
+      <!-- SGP -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">ICML 2019</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/pdf/1811.10792.pdf" target="_blank" rel="noopener">
+              Stochastic Gradient Push for Distributed Deep Learning
+            </a>
+          </p>
+          <p class="pub-authors">
+            <strong>M. Assran</strong>, N. Loizou, N. Ballas, M. Rabbat
+          </p>
+        </div>
+      </div>
+
     </div>
-  </div>
+  </section>
+
+  <!-- Graduate Students -->
+  <section class="section" id="students">
+    <p class="section-label">Doctoral Students Co-Advised at Meta</p>
+    <div class="students-grid">
+
+      <div class="student-item">
+        <div class="student-initials">—</div>
+        <div class="student-info">
+          <p class="student-name">Gaoyue Zhou</p>
+          <p class="student-meta">PhD · NYU · 2025&ndash;2026</p>
+          <p class="student-topic">Academic advisor(s): Lerrel Pinto and Yann LeCun</p>
+        </div>
+      </div>
+
+      <div class="student-item">
+        <div class="student-initials">—</div>
+        <div class="student-info">
+          <p class="student-name">Emily Kaczmarek</p>
+          <p class="student-meta">PhD · McGill/Mila · 2025&ndash;2026</p>
+          <p class="student-topic">Academic advisor(s): Tal Arbel</p>
+        </div>
+      </div>
+
+      <div class="student-item">
+        <div class="student-initials">—</div>
+        <div class="student-info">
+          <p class="student-name">Wancong Zhang</p>
+          <p class="student-meta">PhD · NYU · 2025</p>
+          <p class="student-topic">Academic advisor(s): Yann LeCun</p>
+        </div>
+      </div>
+
+      <div class="student-item">
+        <div class="student-initials">—</div>
+        <div class="student-info">
+          <p class="student-name">Artem Zholus</p>
+          <p class="student-meta">PhD · UdeM/Mila · 2024&ndash;2026</p>
+          <p class="student-topic">Academic advisor(s): Sarath Chander</p>
+        </div>
+      </div>
+
+      <div class="student-item">
+        <div class="student-initials">—</div>
+        <div class="student-info">
+          <p class="student-name">Marcel Hussing</p>
+          <p class="student-meta">PhD · UPenn · 2024</p>
+          <p class="student-topic">Academic advisor(s): Eric Eaton</p>
+        </div>
+      </div>
+
+      <div class="student-item">
+        <div class="student-initials">—</div>
+        <div class="student-info">
+          <p class="student-name">Benno Krojer</p>
+          <p class="student-meta">PhD · McGill/Mila · 2024</p>
+          <p class="student-topic">Academic advisor(s): Siva Reddy</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Open-Source Code -->
+  <section class="section" id="code">
+    <p class="section-label">Open-Source Code</p>
+    <div class="code-grid">
+
+      <div class="code-item">
+        <p class="pub-venue">
+          <a class="code-name" href="https://github.com/facebookresearch/vjepa2" target="_blank" rel="noopener">vjepa2</a>
+          <span class="star-badge" id="stars-vjepa2"></span>
+          <span class="fork-badge" id="forks-vjepa2"></span>
+        </p>
+        <p class="pub-title" style="font-weight:400;font-size:15px;color:var(--ink-muted);margin-top:4px;">Official codebase for V-JEPA 2, a self-supervised video world model for understanding, prediction, and planning.</p>
+      </div>
+
+      <div class="code-item">
+        <p class="pub-venue">
+          <a class="code-name" href="https://github.com/facebookresearch/ijepa" target="_blank" rel="noopener">ijepa</a>
+          <span class="star-badge" id="stars-ijepa"></span>
+          <span class="fork-badge" id="forks-ijepa"></span>
+        </p>
+        <p class="pub-title" style="font-weight:400;font-size:15px;color:var(--ink-muted);margin-top:4px;">Official codebase for I-JEPA, a non-generative approach for self-supervised learning from images.</p>
+      </div>
+
+      <div class="code-item">
+        <p class="pub-venue">
+          <a class="code-name" href="https://github.com/facebookresearch/jepa" target="_blank" rel="noopener">jepa</a>
+          <span class="star-badge" id="stars-jepa"></span>
+          <span class="fork-badge" id="forks-jepa"></span>
+        </p>
+        <p class="pub-title" style="font-weight:400;font-size:15px;color:var(--ink-muted);margin-top:4px;">Official codebase for V-JEPA, a method for self-supervised learning of visual representations from video.</p>
+      </div>
+
+      <div class="code-item">
+        <p class="pub-venue">
+          <a class="code-name" href="https://github.com/facebookresearch/msn" target="_blank" rel="noopener">msn</a>
+          <span class="star-badge" id="stars-msn"></span>
+          <span class="fork-badge" id="forks-msn"></span>
+        </p>
+        <p class="pub-title" style="font-weight:400;font-size:15px;color:var(--ink-muted);margin-top:4px;">Official codebase for Masked Siamese Networks, a self-supervised learning framework for label-efficient image classification.</p>
+      </div>
+
+      <div class="code-item">
+        <p class="pub-venue">
+          <a class="code-name" href="https://github.com/facebookresearch/suncet" target="_blank" rel="noopener">suncet</a>
+          <span class="star-badge" id="stars-suncet"></span>
+          <span class="fork-badge" id="forks-suncet"></span>
+        </p>
+        <p class="pub-title" style="font-weight:400;font-size:15px;color:var(--ink-muted);margin-top:4px;">Official codebase for PAWS and SuNCEt, semi-supervised methods for learning visual features with limited labels.</p>
+      </div>
+
+      <div class="code-item">
+        <p class="pub-venue">
+          <a class="code-name" href="https://github.com/facebookresearch/stochastic_gradient_push" target="_blank" rel="noopener">sgp</a>
+          <span class="star-badge" id="stars-stochastic_gradient_push"></span>
+          <span class="fork-badge" id="forks-stochastic_gradient_push"></span>
+        </p>
+        <p class="pub-title" style="font-weight:400;font-size:15px;color:var(--ink-muted);margin-top:4px;">Official codebase for Stochastic Gradient Push, a method for distributed deep learning over peer-to-peer networks.</p>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- Honours & Awards -->
+  <section class="section" id="awards">
+    <p class="section-label">Honours &amp; Awards</p>
+    <div class="awards-grid">
+
+      <div class="award-item">
+        <p class="award-name">Vanier Scholarship</p>
+        <p class="award-org">NSERC</p>
+        <p class="award-amount">$150,000</p>
+        <p class="award-desc">The Vanier CGS plays an important role in fulfilling the Government of Canada's Science and Technology strategy to promote the development and application of leading-edge knowledge and attract and retain the world's top graduate students.</p>
+      </div>
+      <div class="award-item">
+        <p class="award-name">Alexander Graham Bell Scholarship</p>
+        <p class="award-org">NSERC</p>
+        <p class="award-amount">$105,000</p>
+        <p class="award-desc">Awarded to the top-ranked doctoral students in Canada, to ensure a reliable supply of qualified personnel to meet the needs of Canada's knowledge economy.</p>
+      </div>
+
+      <div class="award-item">
+        <p class="award-name">McGill Engineering Doctoral Award</p>
+        <p class="award-org">McGill University</p>
+        <p class="award-amount">$72,000</p>
+        <p class="award-desc">This award aims to recruit the best and brightest new doctoral students from all over the world.</p>
+      </div>
+      <div class="award-item">
+        <p class="award-name">Les Vadasz Doctoral Fellowship</p>
+        <p class="award-org">McGill University</p>
+        <p class="award-amount">$48,000</p>
+        <p class="award-desc">Established in 2006 by the Vadasz Family Foundation to recruit outstanding students into the Faculty of Engineering's doctoral degree program.</p>
+      </div>
+
+      <div class="award-item">
+        <p class="award-name">Undergraduate Student Masters Award</p>
+        <p class="award-org">McGill University</p>
+        <p class="award-amount">$35,000</p>
+        <p class="award-desc">Competitive recruitment funding to assist in attracting and retaining high caliber undergraduate students with demonstrated academic excellence, as well as applied research experience, into the Faculty's research Graduate Programs.</p>
+      </div>
+      <div class="award-item">
+        <p class="award-name">1st Place — Waterloo Hardware Hackathon</p>
+        <p class="award-org">Google, O'Reilly, PCH</p>
+        <p class="award-amount">$55,000</p>
+        <p class="award-desc">Awarded $5,000 cash scholarship and $50,000 in product services. Developed a solution and prototype to provide Internet access to developing communities using a distributed data mesh with an offline search engine.</p>
+      </div>
+
+      <div class="award-item">
+        <p class="award-name">Rhodes Scholar Finalist</p>
+        <p class="award-org">University of Oxford</p>
+        <p class="award-desc">One of 12 finalists selected for three available Rhodes Scholarships, an international post-graduate scholarship to study at the University of Oxford.</p>
+      </div>
+
+
+      <div class="award-item">
+        <p class="award-name">Graduate Mobility Award</p>
+        <p class="award-org">McGill University</p>
+        <p class="award-desc">To support student engagement in international research experiences outside of McGill.</p>
+      </div>
+      <div class="award-item">
+        <p class="award-name">Graduate Excellence Fellowship</p>
+        <p class="award-org">McGill University</p>
+        <p class="award-desc">Nomination for this award is at the discretion of the Department or School. Selection is based on the excellence of a student's academic and research record.</p>
+      </div>
+
+      <div class="award-item">
+        <p class="award-name">Ian McLachlin Prize for Entrepreneurship</p>
+        <p class="award-org">McGill University, Faculty of Engineering</p>
+        <p class="award-desc">Established in 1998 by Ian McLachlin, B.Eng. 1960, to encourage Engineering students to undertake Entrepreneurial Studies.</p>
+      </div>
+      <div class="award-item">
+        <p class="award-name">Dean's Honour List</p>
+        <p class="award-org">McGill University</p>
+        <p class="award-desc">Recognizes undergraduate students who rank in the top 10% of the Faculty of Engineering.</p>
+      </div>
+
+      <div class="award-item">
+        <p class="award-name">Les Vadasz Award in Engineering</p>
+        <p class="award-org">McGill University</p>
+        <p class="award-desc">Awarded annually by the Faculty of Engineering to a student based on high academic standing, with a preference for interest in and contribution towards engineering sustainability and/or design.</p>
+      </div>
+      <div class="award-item">
+        <p class="award-name">Accenture Prize in Engineering and Science</p>
+        <p class="award-org">McGill University</p>
+        <p class="award-desc">Awarded by the Faculty Scholarships Committees on the basis of academic excellence and demonstrated leadership qualities.</p>
+      </div>
+
+      <div class="award-item">
+        <p class="award-name">Faculty of Engineering Scholarship</p>
+        <p class="award-org">McGill University</p>
+        <p class="award-desc">Awarded based on academic achievement to students in the top 5% of the Faculty. Granted by the Faculty of Engineering Scholarships Committee based on good academic standing.</p>
+      </div>
+      <div class="award-item">
+        <p class="award-name">Undergraduate Student Research Award</p>
+        <p class="award-org">NSERC</p>
+        <p class="award-desc">Granted by the university and the Natural Sciences and Engineering Research Council of Canada, based on the student's academic record, research aptitude, and merit.</p>
+      </div>
+
+      <div class="award-item">
+        <p class="award-name">John Howard Ambrose Award</p>
+        <p class="award-org">McGill University</p>
+        <p class="award-desc">Awarded by the Faculty of Engineering Scholarships Committee on the basis of merit to engineering students.</p>
+      </div>
+      <div class="award-item">
+        <p class="award-name">IEEE Signal Processing Society Winter School Scholarship</p>
+        <p class="award-org">IEEE Signal Processing Society</p>
+        <p class="award-desc">Awarded by the IEEE Signal Processing Society on the basis of merit to engineering students.</p>
+      </div>
+
+      <div class="award-item">
+        <p class="award-name">John Green Memorial Award</p>
+        <p class="award-org">McGill University</p>
+        <p class="award-desc">For the student with highest standing in the penultimate year of Honours Electrical Engineering. Awarded on the recommendation of the Department.</p>
+      </div>
+      <div class="award-item">
+        <p class="award-name">Christie Steinmetz Award</p>
+        <p class="award-org">McGill University</p>
+        <p class="award-desc">Awarded to a second year student in Electrical Engineering on the basis of academic performance and demonstration of exceptional promise as an engineer.</p>
+      </div>
+
+      <div class="award-item">
+        <p class="award-name">McCaig Family Scholarship in Engineering</p>
+        <p class="award-org">McGill University</p>
+        <p class="award-desc">Awarded by the Faculty of Engineering to undergraduate students who have completed at least one year of the B.Eng. program on the basis of high academic standing.</p>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Mahmoud Assran</span>
+      <span>Montreal, QC &mdash; Meta FAIR</span>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    (function () {
+      var repos = [
+        'facebookresearch/vjepa2',
+        'facebookresearch/ijepa',
+        'facebookresearch/jepa',
+        'facebookresearch/msn',
+        'facebookresearch/suncet',
+        'facebookresearch/stochastic_gradient_push'
+      ];
+      function fmt(n) {
+        return n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n);
+      }
+      repos.forEach(function (repo) {
+        var name = repo.split('/')[1];
+        var starEl = document.getElementById('stars-' + name);
+        var forkEl = document.getElementById('forks-' + name);
+        fetch('https://api.github.com/repos/' + repo)
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (starEl && data.stargazers_count != null) starEl.textContent = fmt(data.stargazers_count);
+            if (forkEl && data.forks_count != null) forkEl.textContent = fmt(data.forks_count);
+          })
+          .catch(function () {});
+      });
+    })();
+  </script>
+
 </body>
 </html>
