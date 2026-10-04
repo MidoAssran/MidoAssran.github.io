@@ -121,6 +121,23 @@
       margin-bottom: 12px;
     }
 
+    .hero-text .bio a {
+      color: var(--ink-muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s;
+    }
+
+    .hero-text .bio a:hover { color: var(--accent); }
+
+    .hero-text .bio:last-of-type { margin-bottom: 20px; }
+
+    .hero-text .meta-note {
+      font-size: 15px;
+      color: var(--ink-faint);
+      margin-bottom: 28px;
+    }
+
     .hero-text .media-note {
       font-size: 15px;
       color: var(--ink-faint);
@@ -219,6 +236,15 @@
       font-size: 11px;
       letter-spacing: 0.11em;
       text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 32px;
+    }
+
+    .section-label.has-note { margin-bottom: 8px; }
+
+    .section-note {
+      font-size: 15px;
+      font-style: italic;
       color: var(--ink-faint);
       margin-bottom: 32px;
     }
@@ -581,6 +607,8 @@
       /* Sections */
       .section { padding: 40px 20px; }
       .section-label { margin-bottom: 24px; }
+      .section-label.has-note { margin-bottom: 8px; }
+      .section-note { margin-bottom: 24px; }
 
       /* Stale note */
       .stale-note { font-size: 10px; padding: 6px 10px; }
@@ -647,30 +675,34 @@
   <section class="hero" id="about" aria-label="About">
     <div class="hero-text">
       <h1>Mahmoud Assran</h1>
+      <p class="role">Scientist &middot; Advanced Machine Intelligence</p>
       <p class="bio">
-		I am a Scientist and Member of Technical Staff on the founding team of <a href="https://amilabs.xyz/">Advanced Machine Intelligence (AMI)</a>.
-		Previously, I was a Research Scientist at Meta in <a href="https://ai.facebook.com/people/mido-assran/">Fundamental AI Research (FAIR)</a>.
+        I am a Scientist and Member of Technical Staff on the founding team of <a href="https://amilabs.xyz/">Advanced Machine Intelligence (AMI)</a>.
+        Previously, I was a Research Scientist at Meta in <a href="https://ai.facebook.com/people/mido-assran/">Fundamental AI Research (FAIR)</a>.
+      </p>
+      <p class="bio">
         I work on self-supervised learning and world models, with a focus on
         <strong>Joint-Embedding Predictive Architectures (JEPA)</strong>, a framework for learning
         abstract representations of the world by predicting in latent space rather than pixel space.
         My work on I-JEPA and V-JEPA has been covered by
-        <a href="https://www.quantamagazine.org/how-one-ai-model-creates-a-physical-intuition-of-its-environment-20251003/" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">Quanta Magazine</a>,
-        <a href="https://www.cnbc.com/2025/06/11/meta-launches-ai-world-model-to-advance-robotics-self-driving-cars.html" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">CNBC</a>,
-        <a href="https://www.reuters.com/technology/meta-releases-human-like-ai-image-creation-model-2023-06-13/" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">Reuters</a>,
-        <a href="https://fortune.com/2023/06/14/metas-chief-a-i-scientist-calls-a-i-doomers-preposterous-and-predicts-llms-are-just-a-passing-fad/" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">Fortune</a>,
-        <a href="https://www.lapresse.ca/affaires/techno/2023-06-13/un-nouveau-modele-d-intelligence-artificielle-propose-par-meta.php" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">La Presse</a>, and others.
-		I will be giving a <a href="https://tedai-vienna.ted.com/speakers-2026/mido-assran">talk</a> on this work later this year at TED.
+        <a href="https://www.quantamagazine.org/how-one-ai-model-creates-a-physical-intuition-of-its-environment-20251003/">Quanta Magazine</a>,
+        <a href="https://www.cnbc.com/2025/06/11/meta-launches-ai-world-model-to-advance-robotics-self-driving-cars.html">CNBC</a>,
+        <a href="https://www.reuters.com/technology/meta-releases-human-like-ai-image-creation-model-2023-06-13/">Reuters</a>,
+        <a href="https://fortune.com/2023/06/14/metas-chief-a-i-scientist-calls-a-i-doomers-preposterous-and-predicts-llms-are-just-a-passing-fad/">Fortune</a>,
+        <a href="https://www.lapresse.ca/affaires/techno/2023-06-13/un-nouveau-modele-d-intelligence-artificielle-propose-par-meta.php">La Presse</a>, and others.
+        I will be giving a <a href="https://tedai-vienna.ted.com/speakers-2026/mido-assran">talk</a> on this work later this year at TED.
       </p>
-      <p class="bio" style="margin-top:14px;">
-        I completed my PhD in Electrical and Computer Engineering at McGill University and Mila, the Quebec AI Institute, where I was supported by a <a href="https://vanier.gc.ca/en/home-accueil.html" style="color:var(--ink-muted);text-decoration:underline;text-underline-offset:3px;">Vanier Scholarship</a>.
-		I remain actively involved in academia, having served as an Area Chair for the Conference on Neural Information Processing Systems (NeurIPS) and most recently co-organizing the World Modeling Workshop at the European Conference on Computer Vision (ECCV).
+      <p class="bio">
+        I completed my PhD in Electrical and Computer Engineering at McGill University and Mila, the Quebec AI Institute, where I was supported by a <a href="https://vanier.gc.ca/en/home-accueil.html">Vanier Scholarship</a>.
+        I remain actively involved in academia, having served as an Area Chair for the Conference on Neural Information Processing Systems (NeurIPS), a Book Reviewer for Cambridge University Press,
+        and most recently co-organizing the World Modeling Workshop at the European Conference on Computer Vision (ECCV).
       </p>
-      <p>
-      I also welcome email requests to participate in mentorship and teaching initiatives.
-      I have held office hours at Georgia Tech for the past few years and delivered the guest lecture on Representations for Generative Modeling in Professor Kira's Deep Learning course through the AI Learning Alliance, which brings graduate-level machine learning education to Historically Black Colleges and Universities.
-      I also served as a program lead for Meta's AI Mentorship program, which offers doctoral students at UC Berkeley, Carnegie Mellon, Mila, and the University of Washington the opportunity to apply for a two-year research visit at Meta.
+      <p class="bio">
+        I also welcome email requests to participate in mentorship and teaching initiatives.
+        I have held office hours at Georgia Tech for the past few years and delivered the guest lecture on Representations for Generative Modeling in Professor Kira's Deep Learning course through the AI Learning Alliance, which brings graduate-level machine learning education to Historically Black Colleges and Universities.
+        I also served as a program lead for Meta's AI Mentorship program, which offers doctoral students at UC Berkeley, Carnegie Mellon, Mila, and the University of Washington the opportunity to apply for a two-year research visit at Meta.
       </p>
-      <p class="meta-note" style="font-size:15px;color:var(--ink-faint);margin-bottom:28px;">
+      <p class="meta-note">
         mido dot assran at amilabs dot xyz
       </p>
       <div class="hero-links">
@@ -880,7 +912,8 @@
 
   <!-- Graduate Students -->
   <section class="section" id="students">
-    <p class="section-label">Doctoral Students Co-Advised at Meta</p>
+    <p class="section-label has-note">Doctoral Students Co-Advised</p>
+    <p class="section-note">Co-advised alongside each student's academic advisor.</p>
     <div class="students-grid">
 
       <div class="student-item">
