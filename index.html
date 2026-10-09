@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mahmoud (Mido) Assran — Research Scientist</title>
-  <meta name="description" content="Mahmoud (Mido) Assran — Research Scientist at Meta FAIR. Self-supervised representation learning, low-shot prediction." />
+  <title>Mahmoud (Mido) Assran — Scientist, AMI</title>
+  <meta name="description" content="Mahmoud (Mido) Assran — Scientist at Advanced Machine Intelligence (AMI). Self-supervised learning, world models, and Joint-Embedding Predictive Architectures." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -120,6 +120,27 @@
       max-width: 520px;
       margin-bottom: 12px;
     }
+
+    .hero-text .bio-list {
+      max-width: 520px;
+      margin: 0 0 16px;
+      padding-left: 20px;
+      font-size: 15.5px;
+      line-height: 1.5;
+      color: var(--ink-muted);
+    }
+
+    .hero-text .bio-list li { margin-bottom: 5px; }
+    .hero-text .bio-list li::marker { color: var(--accent); }
+
+    .hero-text .bio-list a {
+      color: var(--ink-muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s;
+    }
+
+    .hero-text .bio-list a:hover { color: var(--accent); }
 
     .hero-text .bio a {
       color: var(--ink-muted);
@@ -467,56 +488,6 @@
       color: var(--ink-muted);
     }
 
-    /* ─── Awards ─── */
-    .awards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .award-item:nth-child(1),
-    .award-item:nth-child(2) {
-      border-top: 1px solid var(--rule);
-    }
-
-    .award-item {
-      padding: 20px 20px 20px 0;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .award-item:nth-child(even) {
-      padding-left: 28px;
-      border-left: 1px solid var(--rule);
-    }
-
-    .award-name {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 3px;
-      line-height: 1.35;
-    }
-
-    .award-org {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--ink-faint);
-      letter-spacing: 0.04em;
-    }
-
-    .award-amount {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--accent);
-      margin-top: 5px;
-    }
-
-    .award-desc {
-      font-size: 13px;
-      color: var(--ink-faint);
-      line-height: 1.55;
-      margin-top: 6px;
-    }
-
     /* ─── YETE ─── */
     .yete-block {
       border-left: 2px solid var(--accent);
@@ -628,14 +599,6 @@
       .code-item:nth-child(even) { padding-left: 0; border-left: none; }
       .code-item:nth-child(2) { border-top: none; }
 
-      /* Awards grid — single column */
-      .awards-grid { grid-template-columns: 1fr; }
-      .award-item { padding: 16px 0; }
-      .award-item:nth-child(even) { padding-left: 0; border-left: none; }
-      .award-item:nth-child(2) { border-top: none; }
-      .award-name { font-size: 14px; }
-      .award-desc { font-size: 12.5px; }
-
       /* Footer */
       .footer-inner {
         padding: 20px;
@@ -665,7 +628,6 @@
           <li><a href="#pubs">Publications</a></li>
           <li><a href="#students">Students</a></li>
           <li><a href="#code">Code</a></li>
-          <li><a href="#awards">Awards</a></li>
         </ul>
       </div>
     </nav>
@@ -682,7 +644,7 @@
       </p>
       <p class="bio">
         I work on self-supervised learning and world models, with a focus on
-        <strong>Joint-Embedding Predictive Architectures (JEPA)</strong>, a framework for learning
+        <strong>Joint-Embedding Predictive Architectures (JEPA)</strong>, which learn
         abstract representations of the world by predicting in latent space rather than pixel space.
         My work on I-JEPA and V-JEPA has been covered by
         <a href="https://www.quantamagazine.org/how-one-ai-model-creates-a-physical-intuition-of-its-environment-20251003/">Quanta Magazine</a>,
@@ -690,17 +652,23 @@
         <a href="https://www.reuters.com/technology/meta-releases-human-like-ai-image-creation-model-2023-06-13/">Reuters</a>,
         <a href="https://fortune.com/2023/06/14/metas-chief-a-i-scientist-calls-a-i-doomers-preposterous-and-predicts-llms-are-just-a-passing-fad/">Fortune</a>,
         <a href="https://www.lapresse.ca/affaires/techno/2023-06-13/un-nouveau-modele-d-intelligence-artificielle-propose-par-meta.php">La Presse</a>, and others.
-        I will be giving a <a href="https://tedai-vienna.ted.com/speakers-2026/mido-assran">talk</a> on this work later this year at TED.
       </p>
       <p class="bio">
-        I received my PhD in Electrical and Computer Engineering at McGill University and Mila, the Quebec AI Institute, where I was supported by a <a href="https://vanier.gc.ca/en/home-accueil.html">Vanier Scholarship</a>.
-        I remain actively involved in academia, having served as an Area Chair for the Conference on Neural Information Processing Systems (NeurIPS), a Book Reviewer for Cambridge University Press,
-        and most recently co-organizing the World Modeling Workshop at the European Conference on Computer Vision (ECCV).
+        I received my PhD from McGill University, supported by a <a href="https://vanier.gc.ca/en/home-accueil.html">Vanier Scholarship</a>.
+        I remain involved in academic service, mentorship, and teaching. Recent activities include:
       </p>
+      <ul class="bio-list">
+        <li>Speaker, <a href="https://tedai-vienna.ted.com/speakers-2026/mido-assran">TED AI Vienna</a> (2026)</li>
+        <li>Keynote Speaker, World Modeling Workshop, ICLR</li>
+        <li>Co-organizer, World Modeling Workshop, ECCV</li>
+        <li>Area Chair, NeurIPS</li>
+        <li>Book Reviewer, Cambridge University Press</li>
+        <li>Guest Lecturer, Georgia Tech, Deep Learning (Prof. Kira), AI Learning Alliance, which brings graduate-level machine learning education to Historically Black Colleges and Universities</li>
+        <li>Program Lead, Meta AI Mentorship Program, offering doctoral students two-year research visits</li>
+        <li>Office hours, Georgia Tech</li>
+      </ul>
       <p class="bio">
-        I also welcome email requests to participate in mentorship and teaching initiatives.
-        I have held office hours at Georgia Tech for several years and delivered the guest lecture on Representations for Generative Modeling in Professor Kira's Deep Learning course through the AI Learning Alliance, which brings graduate-level machine learning education to Historically Black Colleges and Universities.
-        I also served as a program lead for Meta's AI Mentorship program, which offers doctoral students at UC Berkeley, Carnegie Mellon, Mila, and the University of Washington the opportunity to apply for a two-year research visit with a mentor.
+        I am happy to receive email requests to participate in teaching or mentorship initiatives.
       </p>
       <p class="meta-note">
         mido dot assran at amilabs dot xyz
@@ -917,7 +885,7 @@
     <div class="students-grid">
 
       <div class="student-item">
-        <div class="student-initials">—</div>
+        <div class="student-initials" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></div>
         <div class="student-info">
           <p class="student-name">Gaoyue Zhou</p>
           <p class="student-meta">PhD · NYU · 2025&ndash;2026</p>
@@ -926,7 +894,7 @@
       </div>
 
       <div class="student-item">
-        <div class="student-initials">—</div>
+        <div class="student-initials" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></div>
         <div class="student-info">
           <p class="student-name">Emily Kaczmarek</p>
           <p class="student-meta">PhD · McGill/Mila · 2025&ndash;2026</p>
@@ -935,7 +903,7 @@
       </div>
 
       <div class="student-item">
-        <div class="student-initials">—</div>
+        <div class="student-initials" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></div>
         <div class="student-info">
           <p class="student-name">Wancong Zhang</p>
           <p class="student-meta">PhD · NYU · 2025</p>
@@ -944,7 +912,7 @@
       </div>
 
       <div class="student-item">
-        <div class="student-initials">—</div>
+        <div class="student-initials" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></div>
         <div class="student-info">
           <p class="student-name">Artem Zholus</p>
           <p class="student-meta">PhD · UdeM/Mila · 2024&ndash;2026</p>
@@ -953,7 +921,7 @@
       </div>
 
       <div class="student-item">
-        <div class="student-initials">—</div>
+        <div class="student-initials" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></div>
         <div class="student-info">
           <p class="student-name">Marcel Hussing</p>
           <p class="student-meta">PhD · UPenn · 2024</p>
@@ -962,7 +930,7 @@
       </div>
 
       <div class="student-item">
-        <div class="student-initials">—</div>
+        <div class="student-initials" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></div>
         <div class="student-info">
           <p class="student-name">Benno Krojer</p>
           <p class="student-meta">PhD · McGill/Mila · 2024</p>
@@ -1036,138 +1004,11 @@
     </div>
   </section>
 
-  <!-- Honours & Awards -->
-  <section class="section" id="awards">
-    <p class="section-label">Honours &amp; Awards</p>
-    <div class="awards-grid">
-
-      <div class="award-item">
-        <p class="award-name">Vanier Scholarship</p>
-        <p class="award-org">NSERC</p>
-        <p class="award-amount">$150,000</p>
-        <p class="award-desc">The Vanier CGS plays an important role in fulfilling the Government of Canada's Science and Technology strategy to promote the development and application of leading-edge knowledge and attract and retain the world's top graduate students.</p>
-      </div>
-      <div class="award-item">
-        <p class="award-name">Alexander Graham Bell Scholarship</p>
-        <p class="award-org">NSERC</p>
-        <p class="award-amount">$105,000</p>
-        <p class="award-desc">Awarded to the top-ranked doctoral students in Canada, to ensure a reliable supply of qualified personnel to meet the needs of Canada's knowledge economy.</p>
-      </div>
-
-      <div class="award-item">
-        <p class="award-name">McGill Engineering Doctoral Award</p>
-        <p class="award-org">McGill University</p>
-        <p class="award-amount">$72,000</p>
-        <p class="award-desc">This award aims to recruit the best and brightest new doctoral students from all over the world.</p>
-      </div>
-      <div class="award-item">
-        <p class="award-name">Les Vadasz Doctoral Fellowship</p>
-        <p class="award-org">McGill University</p>
-        <p class="award-amount">$48,000</p>
-        <p class="award-desc">Established in 2006 by the Vadasz Family Foundation to recruit outstanding students into the Faculty of Engineering's doctoral degree program.</p>
-      </div>
-
-      <div class="award-item">
-        <p class="award-name">Undergraduate Student Masters Award</p>
-        <p class="award-org">McGill University</p>
-        <p class="award-amount">$35,000</p>
-        <p class="award-desc">Competitive recruitment funding to assist in attracting and retaining high caliber undergraduate students with demonstrated academic excellence, as well as applied research experience, into the Faculty's research Graduate Programs.</p>
-      </div>
-      <div class="award-item">
-        <p class="award-name">1st Place — Waterloo Hardware Hackathon</p>
-        <p class="award-org">Google, O'Reilly, PCH</p>
-        <p class="award-amount">$55,000</p>
-        <p class="award-desc">Awarded $5,000 cash scholarship and $50,000 in product services. Developed a solution and prototype to provide Internet access to developing communities using a distributed data mesh with an offline search engine.</p>
-      </div>
-
-      <div class="award-item">
-        <p class="award-name">Rhodes Scholar Finalist</p>
-        <p class="award-org">University of Oxford</p>
-        <p class="award-desc">One of 12 finalists selected for three available Rhodes Scholarships, an international post-graduate scholarship to study at the University of Oxford.</p>
-      </div>
-
-
-      <div class="award-item">
-        <p class="award-name">Graduate Mobility Award</p>
-        <p class="award-org">McGill University</p>
-        <p class="award-desc">To support student engagement in international research experiences outside of McGill.</p>
-      </div>
-      <div class="award-item">
-        <p class="award-name">Graduate Excellence Fellowship</p>
-        <p class="award-org">McGill University</p>
-        <p class="award-desc">Nomination for this award is at the discretion of the Department or School. Selection is based on the excellence of a student's academic and research record.</p>
-      </div>
-
-      <div class="award-item">
-        <p class="award-name">Ian McLachlin Prize for Entrepreneurship</p>
-        <p class="award-org">McGill University, Faculty of Engineering</p>
-        <p class="award-desc">Established in 1998 by Ian McLachlin, B.Eng. 1960, to encourage Engineering students to undertake Entrepreneurial Studies.</p>
-      </div>
-      <div class="award-item">
-        <p class="award-name">Dean's Honour List</p>
-        <p class="award-org">McGill University</p>
-        <p class="award-desc">Recognizes undergraduate students who rank in the top 10% of the Faculty of Engineering.</p>
-      </div>
-
-      <div class="award-item">
-        <p class="award-name">Les Vadasz Award in Engineering</p>
-        <p class="award-org">McGill University</p>
-        <p class="award-desc">Awarded annually by the Faculty of Engineering to a student based on high academic standing, with a preference for interest in and contribution towards engineering sustainability and/or design.</p>
-      </div>
-      <div class="award-item">
-        <p class="award-name">Accenture Prize in Engineering and Science</p>
-        <p class="award-org">McGill University</p>
-        <p class="award-desc">Awarded by the Faculty Scholarships Committees on the basis of academic excellence and demonstrated leadership qualities.</p>
-      </div>
-
-      <div class="award-item">
-        <p class="award-name">Faculty of Engineering Scholarship</p>
-        <p class="award-org">McGill University</p>
-        <p class="award-desc">Awarded based on academic achievement to students in the top 5% of the Faculty. Granted by the Faculty of Engineering Scholarships Committee based on good academic standing.</p>
-      </div>
-      <div class="award-item">
-        <p class="award-name">Undergraduate Student Research Award</p>
-        <p class="award-org">NSERC</p>
-        <p class="award-desc">Granted by the university and the Natural Sciences and Engineering Research Council of Canada, based on the student's academic record, research aptitude, and merit.</p>
-      </div>
-
-      <div class="award-item">
-        <p class="award-name">John Howard Ambrose Award</p>
-        <p class="award-org">McGill University</p>
-        <p class="award-desc">Awarded by the Faculty of Engineering Scholarships Committee on the basis of merit to engineering students.</p>
-      </div>
-      <div class="award-item">
-        <p class="award-name">IEEE Signal Processing Society Winter School Scholarship</p>
-        <p class="award-org">IEEE Signal Processing Society</p>
-        <p class="award-desc">Awarded by the IEEE Signal Processing Society on the basis of merit to engineering students.</p>
-      </div>
-
-      <div class="award-item">
-        <p class="award-name">John Green Memorial Award</p>
-        <p class="award-org">McGill University</p>
-        <p class="award-desc">For the student with highest standing in the penultimate year of Honours Electrical Engineering. Awarded on the recommendation of the Department.</p>
-      </div>
-      <div class="award-item">
-        <p class="award-name">Christie Steinmetz Award</p>
-        <p class="award-org">McGill University</p>
-        <p class="award-desc">Awarded to a second year student in Electrical Engineering on the basis of academic performance and demonstration of exceptional promise as an engineer.</p>
-      </div>
-
-      <div class="award-item">
-        <p class="award-name">McCaig Family Scholarship in Engineering</p>
-        <p class="award-org">McGill University</p>
-        <p class="award-desc">Awarded by the Faculty of Engineering to undergraduate students who have completed at least one year of the B.Eng. program on the basis of high academic standing.</p>
-      </div>
-
-
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-inner">
       <span>Mahmoud Assran</span>
-      <span>Montreal, QC &mdash; Meta FAIR</span>
+      <span>Montreal, QC &mdash; AMI</span>
     </div>
   </footer>
 
