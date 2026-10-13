@@ -13,9 +13,9 @@
 
     :root {
       --cream: #f8f6f1;
-      --ink: #1a1a18;
-      --ink-muted: #5a5a56;
-      --ink-faint: #9a9a94;
+      --ink: #0d0d0c;
+      --ink-muted: #2c2c2a;
+      --ink-faint: #5c5c57;
       --accent: #2a4a7f;
       --accent-light: #e8eef7;
       --rule: #dedad2;
@@ -25,6 +25,17 @@
     }
 
     html { scroll-behavior: smooth; }
+
+    /* Justified prose */
+    .hero-text .bio,
+    .plain-list li,
+    .plain-list .item-desc,
+    .section-note {
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
 
     body {
       background: var(--cream);
@@ -212,6 +223,46 @@
       filter: grayscale(12%);
       display: block;
     }
+
+    /* ─── Plain lists (talks, service) ─── */
+    .plain-list {
+      padding-left: 20px;
+      color: var(--ink-muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .plain-list li { margin-bottom: 8px; }
+    .plain-list li::marker { color: var(--accent); }
+
+    .plain-list a {
+      color: var(--ink-muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s;
+    }
+
+    .plain-list a:hover { color: var(--accent); }
+
+    .plain-list .item-desc {
+      display: block;
+      font-size: 14.5px;
+      font-style: italic;
+      color: var(--ink-faint);
+      line-height: 1.5;
+      margin-top: 2px;
+    }
+
+    .sub-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 12px;
+    }
+
+    .sub-label:not(:first-of-type) { margin-top: 28px; }
 
     /* ─── Quote strip ─── */
     .quote-strip {
@@ -625,6 +676,8 @@
         <a class="nav-name" href="#about">M. Assran</a>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
+          <li><a href="#talks">Talks</a></li>
+          <li><a href="#service">Service</a></li>
           <li><a href="#pubs">Publications</a></li>
           <li><a href="#students">Students</a></li>
           <li><a href="#code">Code</a></li>
@@ -641,6 +694,7 @@
       <p class="bio">
         I am a Scientist and Member of Technical Staff on the founding team of <a href="https://amilabs.xyz/">Advanced Machine Intelligence (AMI)</a>.
         Previously, I was a Research Scientist at Meta in <a href="https://ai.facebook.com/people/mido-assran/">Fundamental AI Research (FAIR)</a>.
+		I received my PhD from McGill University, supported by a <a href="https://vanier.gc.ca/en/home-accueil.html">Vanier Scholarship</a>.
       </p>
       <p class="bio">
         I work on self-supervised learning and world models, with a focus on
@@ -652,23 +706,6 @@
         <a href="https://www.reuters.com/technology/meta-releases-human-like-ai-image-creation-model-2023-06-13/">Reuters</a>,
         <a href="https://fortune.com/2023/06/14/metas-chief-a-i-scientist-calls-a-i-doomers-preposterous-and-predicts-llms-are-just-a-passing-fad/">Fortune</a>,
         <a href="https://www.lapresse.ca/affaires/techno/2023-06-13/un-nouveau-modele-d-intelligence-artificielle-propose-par-meta.php">La Presse</a>, and others.
-      </p>
-      <p class="bio">
-        I received my PhD from McGill University, supported by a <a href="https://vanier.gc.ca/en/home-accueil.html">Vanier Scholarship</a>.
-        I remain involved in academic service, mentorship, and teaching. Recent activities include:
-      </p>
-      <ul class="bio-list">
-        <li>Speaker, <a href="https://tedai-vienna.ted.com/speakers-2026/mido-assran">TED AI Vienna</a> (2026)</li>
-        <li>Keynote Speaker, World Modeling Workshop, ICLR</li>
-        <li>Co-organizer, World Modeling Workshop, ECCV</li>
-        <li>Area Chair, NeurIPS</li>
-        <li>Book Reviewer, Cambridge University Press</li>
-        <li>Guest Lecturer, Georgia Tech, Deep Learning (Prof. Kira), AI Learning Alliance, which brings graduate-level machine learning education to Historically Black Colleges and Universities</li>
-        <li>Program Lead, Meta AI Mentorship Program, offering doctoral students two-year research visits</li>
-        <li>Office hours, Georgia Tech</li>
-      </ul>
-      <p class="bio">
-        I am happy to receive email requests to participate in teaching or mentorship initiatives.
       </p>
       <p class="meta-note">
         mido dot assran at amilabs dot xyz
@@ -682,6 +719,47 @@
     </div>
   </section>
 
+  <!-- Invited Talks -->
+  <section class="section" id="talks">
+    <p class="section-label">Invited Talks</p>
+
+    <p class="sub-label">Upcoming</p>
+    <ul class="plain-list">
+      <li><a href="https://tedai-vienna.ted.com/speakers-2026/mido-assran">TED AI Vienna</a> (2026)</li>
+      <li>Keynote, Workshop on WORLD: World Representation for Learning and Decision, ICLR (2027)</li>
+      <li>Keynote, Workshop on Scientific World Models, ICLR (2027)</li>
+      <li>Keynote, Workshop on New Trends in AI-Generated Media and Security, CVPR (2027)</li>
+      <li>Northeastern University, Multimodal Video Understanding Seminar (2026)</li>
+    </ul>
+
+    <p class="sub-label">Selected Previous</p>
+    <ul class="plain-list">
+      <li>Keynote, Workshop on World Models: Understanding, Modelling and Scaling, ICLR (2026)</li>
+      <li>Carnegie Mellon University, Computer Vision, Language Understanding and Robotics Seminar (2023)</li>
+      <li>Georgia Institute of Technology, AILA Program (2023)</li>
+      <li>New York University, CILVR Seminar (2022)</li>
+      <li>Columbia University, VIGR Seminar (2022)</li>
+    </ul>
+  </section>
+
+  <!-- Service -->
+  <section class="section" id="service">
+    <p class="section-label">Service</p>
+    <ul class="plain-list">
+      <li>Area Chair, NeurIPS</li>
+      <li>Co-organizer, World Modeling Workshop, ECCV</li>
+      <li>Book Reviewer, Cambridge University Press</li>
+      <li>
+        Guest Lecturer, AI Learning Alliance
+        <span class="item-desc">The AILA program brings graduate-level machine learning education to Historically Black Colleges and Universities.</span>
+      </li>
+      <li>
+        Program Lead, Meta AI Mentorship Program
+        <span class="item-desc">The AIM program offers doctoral students at the UC Berkeley, the University of Washington, Mila, and New York University the opportunity to apply for two-year research visits at Meta.</span>
+      </li>
+    </ul>
+  </section>
+
   <!-- Quote -->
   <div class="quote-strip">
     <div class="quote-strip-inner">
@@ -691,6 +769,7 @@
       </blockquote>
     </div>
   </div>
+
 
   <!-- Publications -->
   <section class="section" id="pubs">
