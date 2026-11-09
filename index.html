@@ -3,8 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mahmoud (Mido) Assran — Scientist, AMI</title>
-  <meta name="description" content="Mahmoud (Mido) Assran — Scientist at Advanced Machine Intelligence (AMI). Self-supervised learning, world models, and Joint-Embedding Predictive Architectures." />
+  <title>Mahmoud (Mido) Assran — Scientist, AMI Labs</title>
+  <meta name="description" content="Mahmoud (Mido) Assran — Scientist at AMI Labs. Self-supervised learning, world models, and Joint-Embedding Predictive Architectures." />
+  <link rel="canonical" href="https://www.midoassran.ca/" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://www.midoassran.ca/" />
+  <meta property="og:title" content="Mahmoud (Mido) Assran" />
+  <meta property="og:description" content="Scientist at AMI Labs. Self-supervised learning, world models, and Joint-Embedding Predictive Architectures." />
+  <meta property="og:image" content="https://www.midoassran.ca/mido.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Mahmoud (Mido) Assran" />
+  <meta name="twitter:description" content="Scientist at AMI Labs. Self-supervised learning, world models, and JEPAs." />
+  <meta name="twitter:image" content="https://www.midoassran.ca/mido.jpg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23ffffff'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='36' text-anchor='middle' fill='%232a4a7f'%3EMA%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -12,13 +23,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream: #f8f6f1;
+      --bg: #ffffff;
       --ink: #0d0d0c;
       --ink-muted: #2c2c2a;
       --ink-faint: #5c5c57;
       --accent: #2a4a7f;
       --accent-light: #e8eef7;
-      --rule: #dedad2;
+      --rule: #e3e3e3;
       --serif: 'EB Garamond', Georgia, serif;
       --mono: 'DM Mono', 'Courier New', monospace;
       --max-w: 860px;
@@ -26,19 +37,20 @@
 
     html { scroll-behavior: smooth; }
 
-    /* Justified prose */
+    section[id] { scroll-margin-top: 56px; }
+
+    /* Prose: ragged right, no hyphenation, avoid orphans */
     .hero-text .bio,
     .plain-list li,
     .plain-list .item-desc,
     .section-note {
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
-      -webkit-hyphens: auto;
+      text-align: left;
+      hyphens: manual;
+      text-wrap: pretty;
     }
 
     body {
-      background: var(--cream);
+      background: var(--bg);
       color: var(--ink);
       font-family: var(--serif);
       font-size: 17px;
@@ -56,7 +68,7 @@
     }
 
     .nav {
-      background: var(--cream);
+      background: var(--bg);
       border-bottom: 1px solid var(--rule);
     }
 
@@ -70,12 +82,10 @@
     }
 
     .nav-name {
-      font-family: var(--mono);
-      font-size: 11.5px;
+      font-family: var(--serif);
+      font-size: 17px;
       font-weight: 500;
-      letter-spacing: 0.1em;
-      color: var(--ink-muted);
-      text-transform: uppercase;
+      color: var(--ink);
       text-decoration: none;
     }
 
@@ -86,12 +96,10 @@
     }
 
     .nav-links a {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.07em;
+      font-family: var(--serif);
+      font-size: 15.5px;
       color: var(--ink-muted);
       text-decoration: none;
-      text-transform: uppercase;
       transition: color 0.15s;
     }
 
@@ -103,8 +111,8 @@
       margin: 0 auto;
       padding: 72px 40px 60px;
       display: grid;
-      grid-template-columns: 1fr 180px;
-      gap: 56px;
+      grid-template-columns: 1fr 240px;
+      gap: 48px;
       align-items: start;
     }
 
@@ -116,17 +124,34 @@
       letter-spacing: -0.015em;
     }
 
-    .hero-text .role {
-      font-family: var(--mono);
-      font-size: 11.5px;
-      letter-spacing: 0.09em;
+    .affil {
+      margin: 10px 0 18px;
+      font-size: 17px;
+      line-height: 1.5;
       color: var(--ink-muted);
-      text-transform: uppercase;
-      margin-bottom: 28px;
+    }
+
+    .affil a {
+      color: var(--ink-muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s;
+    }
+
+    .affil a:hover { color: var(--accent); }
+
+    .affil .affil-prev { color: var(--ink-faint); }
+    .affil .affil-prev a { color: var(--ink-faint); }
+
+    .affil .affil-email {
+      margin-top: 6px;
+      font-size: 15.5px;
+      color: var(--ink-faint);
     }
 
     .hero-text .bio {
       font-size: 17px;
+      line-height: 1.6;
       color: var(--ink-muted);
       max-width: 520px;
       margin-bottom: 12px;
@@ -164,12 +189,6 @@
 
     .hero-text .bio:last-of-type { margin-bottom: 20px; }
 
-    .hero-text .meta-note {
-      font-size: 15px;
-      color: var(--ink-faint);
-      margin-bottom: 28px;
-    }
-
     .hero-text .media-note {
       font-size: 15px;
       color: var(--ink-faint);
@@ -186,6 +205,7 @@
     .hero-text .media-note a:hover { color: var(--accent); }
 
     .hero-links {
+      margin-bottom: 26px;
       display: flex;
       gap: 22px;
       flex-wrap: wrap;
@@ -193,10 +213,8 @@
     }
 
     .hero-links a {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-family: var(--serif);
+      font-size: 16px;
       color: var(--accent);
       text-decoration: none;
       border-bottom: 1px solid var(--accent);
@@ -207,8 +225,8 @@
     .hero-links a:hover { opacity: 0.65; }
 
     .hero-photo {
-      width: 180px;
-      height: 224px;
+      width: 240px;
+      aspect-ratio: 3 / 4;
       overflow: hidden;
       border: 1px solid var(--rule);
       margin-top: 4px;
@@ -219,8 +237,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top center;
-      filter: grayscale(12%);
+      object-position: center top;
+      filter: saturate(0.85);
       display: block;
     }
 
@@ -246,53 +264,39 @@
 
     .plain-list .item-desc {
       display: block;
-      font-size: 14.5px;
-      font-style: italic;
+      font-size: 15px;
+      font-weight: 500;
       color: var(--ink-faint);
       line-height: 1.5;
       margin-top: 2px;
     }
 
     .sub-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin: 0 0 12px;
-    }
-
-    .sub-label:not(:first-of-type) { margin-top: 28px; }
-
-    /* ─── Quote strip ─── */
-    .quote-strip {
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .quote-strip-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 20px 40px;
-    }
-
-    .quote-strip blockquote {
+      font-family: var(--serif);
+      font-size: 17px;
       font-style: italic;
-      font-size: 16px;
       color: var(--ink-faint);
-      display: flex;
-      gap: 14px;
-      align-items: baseline;
-      flex-wrap: wrap;
+      margin: 0 0 8px;
     }
 
-    .quote-strip cite {
-      font-style: normal;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.06em;
+    .sub-label:not(:first-of-type) { margin-top: 24px; }
+
+    /* ─── Quote ─── */
+    .hero-quote {
+      margin-top: 32px;
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.5;
       color: var(--ink-faint);
-      white-space: nowrap;
+      max-width: 520px;
+      text-wrap: balance;
+    }
+
+    .hero-quote cite {
+      display: block;
+      margin-top: 4px;
+      font-style: normal;
+      font-size: 14px;
     }
 
     /* ─── Generic section ─── */
@@ -304,12 +308,12 @@
     }
 
     .section-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      margin-bottom: 32px;
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 28px;
     }
 
     .section-label.has-note { margin-bottom: 8px; }
@@ -321,27 +325,21 @@
       margin-bottom: 32px;
     }
 
-    /* ─── Stale notice ─── */
-    .stale-note {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #fdf6e3;
-      border: 1px solid #e8d9a0;
-      border-radius: 3px;
-      padding: 7px 14px;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: #7a6520;
-      letter-spacing: 0.04em;
-      margin-bottom: 36px;
-      line-height: 1.5;
+    /* ─── Publications note ─── */
+    .pub-note {
+      font-size: 15px;
+      font-style: italic;
+      color: var(--ink-faint);
+      margin: -20px 0 28px;
     }
 
-    .stale-note a {
-      color: #7a6520;
+    .pub-note a {
+      color: var(--ink-faint);
       text-decoration: underline;
+      text-underline-offset: 3px;
     }
+
+    .pub-note a:hover { color: var(--accent); }
 
     /* ─── Publications ─── */
     .pub-list { display: flex; flex-direction: column; }
@@ -355,12 +353,10 @@
     .pub-item:first-child { border-top: 1px solid var(--rule); }
 
     .pub-venue {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.07em;
+      font-family: var(--serif);
+      font-size: 15px;
       color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 5px;
+      margin-bottom: 2px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -372,9 +368,8 @@
       background: var(--accent-light);
       color: var(--accent);
       border-radius: 2px;
-      padding: 1px 7px;
-      font-size: 10px;
-      letter-spacing: 0.05em;
+      padding: 0 7px;
+      font-size: 13px;
     }
 
     .pub-title {
@@ -400,63 +395,28 @@
       line-height: 1.5;
     }
 
+    .pub-footnote {
+      font-style: italic;
+      margin-left: 0.8em;
+      white-space: nowrap;
+    }
+
+    .pub-links {
+      margin-top: 4px;
+      font-size: 14px;
+      color: var(--ink-faint);
+    }
+
+    .pub-links a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .pub-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
     .pub-authors strong {
       color: var(--ink-muted);
       font-weight: 500;
-    }
-
-    /* ─── Graduate Students ─── */
-    .students-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .student-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 18px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .student-item:first-child { border-top: 1px solid var(--rule); }
-
-    .student-initials {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--accent-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--mono);
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--accent);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .student-name {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 2px;
-    }
-
-    .student-meta {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 3px;
-    }
-
-    .student-topic {
-      font-size: 14px;
-      color: var(--ink-faint);
     }
 
     /* ─── Open-source code ─── */
@@ -511,18 +471,6 @@
       font-size: 11px;
       color: var(--ink-faint);
     }
-    .code-list { display: flex; flex-direction: column; gap: 14px; }
-
-    .code-item {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .code-item:first-child { border-top: 1px solid var(--rule); }
-
     .code-name {
       font-family: var(--mono);
       font-size: 13px;
@@ -536,35 +484,10 @@
 
     .code-desc {
       font-size: 15px;
+      line-height: 1.5;
       color: var(--ink-muted);
+      margin-top: 4px;
     }
-
-    /* ─── YETE ─── */
-    .yete-block {
-      border-left: 2px solid var(--accent);
-      padding-left: 26px;
-    }
-
-    .yete-block p {
-      font-size: 16.5px;
-      color: var(--ink-muted);
-      margin-bottom: 16px;
-      max-width: 580px;
-    }
-
-    .yete-link {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 1px;
-      transition: opacity 0.15s;
-    }
-
-    .yete-link:hover { opacity: 0.65; }
 
     /* ─── Footer ─── */
     .footer {
@@ -584,10 +507,9 @@
     }
 
     .footer span {
-      font-family: var(--mono);
-      font-size: 11px;
+      font-family: var(--serif);
+      font-size: 14.5px;
       color: var(--ink-faint);
-      letter-spacing: 0.05em;
     }
 
     /* ─── Responsive ─── */
@@ -596,7 +518,7 @@
       /* Nav — hide text links, show hamburger-free condensed version */
       .nav-inner { padding: 12px 20px; }
       .nav-links { gap: 12px; }
-      .nav-links a { font-size: 10px; letter-spacing: 0.05em; }
+      .nav-links a { font-size: 14px; }
 
       /* Hero — stack vertically, photo on top */
       .hero {
@@ -606,13 +528,12 @@
       }
 
       .hero-photo {
-        width: 120px;
-        height: 150px;
+        width: 180px;
         order: -1;
       }
 
       .hero-text h1 { font-size: 32px; }
-      .hero-text .role { font-size: 10.5px; margin-bottom: 18px; }
+      .affil { font-size: 16px; }
       .hero-text .bio { font-size: 16px; }
 
       .hero-links {
@@ -620,29 +541,21 @@
         flex-wrap: wrap;
       }
 
-      .hero-links a { font-size: 10px; }
-
-      /* Quote */
-      .quote-strip-inner { padding: 16px 20px; }
-      .quote-strip blockquote { font-size: 14.5px; gap: 8px; }
+      .hero-links a { font-size: 15px; }
 
       /* Sections */
       .section { padding: 40px 20px; }
-      .section-label { margin-bottom: 24px; }
+      .section-label { font-size: 21px; margin-bottom: 22px; }
       .section-label.has-note { margin-bottom: 8px; }
       .section-note { margin-bottom: 24px; }
 
-      /* Stale note */
-      .stale-note { font-size: 10px; padding: 6px 10px; }
+      /* Publications note */
+      .pub-note { margin-top: -14px; margin-bottom: 22px; }
 
       /* Publications — full width single column */
       .pub-item { padding: 18px 0; }
       .pub-title { font-size: 15.5px; }
       .pub-authors { font-size: 12.5px; }
-
-      /* Students */
-      .student-item { gap: 14px; padding: 16px 0; }
-      .student-initials { width: 36px; height: 36px; font-size: 11px; }
 
       /* Code grid — single column */
       .code-grid { grid-template-columns: 1fr; }
@@ -673,12 +586,12 @@
   <header>
     <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="nav-inner">
-        <a class="nav-name" href="#about">M. Assran</a>
+        <a class="nav-name" href="#about">Mahmoud Assran</a>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
-          <li><a href="#talks">Talks</a></li>
           <li><a href="#service">Service</a></li>
           <li><a href="#pubs">Publications</a></li>
+          <li><a href="#talks">Talks</a></li>
           <li><a href="#students">Students</a></li>
           <li><a href="#code">Code</a></li>
         </ul>
@@ -690,96 +603,78 @@
   <section class="hero" id="about" aria-label="About">
     <div class="hero-text">
       <h1>Mahmoud Assran</h1>
-      <p class="role">Scientist &middot; Advanced Machine Intelligence</p>
+      <div class="affil">
+        <p>Scientist, Member of Technical Staff, <a href="https://amilabs.xyz/">AMI&nbsp;Labs</a></p>
+        <p class="affil-prev">Previously: Research Scientist, <a href="https://ai.facebook.com/people/mido-assran/">Meta FAIR</a></p>
+        <p class="affil-email">mido dot assran at amilabs dot xyz</p>
+      </div>
+      <div class="hero-links">
+        <a href="https://scholar.google.com/citations?user=gcQTTvkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://github.com/MidoAssran" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://ca.linkedin.com/in/midoassran" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
       <p class="bio">
-        I am a Scientist and Member of Technical Staff on the founding team of <a href="https://amilabs.xyz/">Advanced Machine Intelligence (AMI)</a>.
+        I am a Scientist and Member of Technical Staff on the founding team of <a href="https://amilabs.xyz/">AMI&nbsp;Labs</a>.
         Previously, I was a Research Scientist at Meta in <a href="https://ai.facebook.com/people/mido-assran/">Fundamental AI Research (FAIR)</a>.
-		I received my PhD from McGill University, supported by a <a href="https://vanier.gc.ca/en/home-accueil.html">Vanier Scholarship</a>.
+        I received my PhD from McGill University, advised by Mike Rabbat and supported by a <a href="https://vanier.gc.ca/en/home-accueil.html">Vanier Scholarship</a>.
       </p>
       <p class="bio">
         I work on self-supervised learning and world models, with a focus on
-        <strong>Joint-Embedding Predictive Architectures (JEPA)</strong>, which learn
+        <strong>Joint&#8209;Embedding Predictive Architectures (JEPA)</strong>, which learn
         abstract representations of the world by predicting in latent space rather than observation space.
-        My work on I-JEPA and V-JEPA has been covered by
-        <a href="https://www.quantamagazine.org/how-one-ai-model-creates-a-physical-intuition-of-its-environment-20251003/">Quanta Magazine</a>,
+        My work on JEPA (incl. I-JEPA and V-JEPA) has been featured in
+        <a href="https://www.quantamagazine.org/how-one-ai-model-creates-a-physical-intuition-of-its-environment-20251003/">Quanta&nbsp;Magazine</a>,
         <a href="https://www.cnbc.com/2025/06/11/meta-launches-ai-world-model-to-advance-robotics-self-driving-cars.html">CNBC</a>,
         <a href="https://www.reuters.com/technology/meta-releases-human-like-ai-image-creation-model-2023-06-13/">Reuters</a>,
         <a href="https://fortune.com/2023/06/14/metas-chief-a-i-scientist-calls-a-i-doomers-preposterous-and-predicts-llms-are-just-a-passing-fad/">Fortune</a>,
-        <a href="https://www.lapresse.ca/affaires/techno/2023-06-13/un-nouveau-modele-d-intelligence-artificielle-propose-par-meta.php">La Presse</a>, and others.
+        <a href="https://www.lapresse.ca/affaires/techno/2023-06-13/un-nouveau-modele-d-intelligence-artificielle-propose-par-meta.php">La&nbsp;Presse</a>, and others. I&rsquo;ve also spoken about this work at&nbsp;<a href="https://tedai-vienna.ted.com/speakers-2026/mido-assran">TED</a>.
       </p>
-      <p class="meta-note">
-        mido dot assran at amilabs dot xyz
-      </p>
-      <div class="hero-links">
-        <a href="https://scholar.google.com/citations?user=gcQTTvkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-      </div>
+      <blockquote class="hero-quote">
+        &ldquo;We&rsquo;re all here on this earth to help others; what on earth the others are here for, I have no idea.&rdquo;
+        <cite>&mdash;&thinsp;W.&thinsp;H. Auden</cite>
+      </blockquote>
     </div>
     <div class="hero-photo">
-      <img src="midowb.jpg" alt="Mahmoud (Mido) Assran" />
+      <img src="mido.jpg" alt="Mahmoud (Mido) Assran" />
     </div>
-  </section>
-
-  <!-- Invited Talks -->
-  <section class="section" id="talks">
-    <p class="section-label">Invited Talks</p>
-
-    <p class="sub-label">Upcoming</p>
-    <ul class="plain-list">
-      <li><a href="https://tedai-vienna.ted.com/speakers-2026/mido-assran">TED AI Vienna</a> (2026)</li>
-      <li>Northeastern University, Multimodal Video Understanding Seminar (2026)</li>
-      <li>Keynote, Workshop on WORLD: World Representation for Learning and Decision, ICLR (2027)</li>
-      <li>Keynote, Workshop on Scientific World Models, ICLR (2027)</li>
-      <li>Keynote, Workshop on New Trends in AI-Generated Media and Security, CVPR (2027)</li>
-    </ul>
-
-    <p class="sub-label">Selected Previous</p>
-    <ul class="plain-list">
-      <li>Keynote, Workshop on World Models: Understanding, Modelling and Scaling, ICLR (2026)</li>
-      <li>Carnegie Mellon University, Computer Vision, Language Understanding and Robotics Seminar (2023)</li>
-      <li>Georgia Institute of Technology, AILA Program (2023)</li>
-      <li>New York University, CILVR Seminar (2022)</li>
-      <li>Columbia University, VIGR Seminar (2022)</li>
-    </ul>
   </section>
 
   <!-- Service -->
   <section class="section" id="service">
-    <p class="section-label">Service</p>
+    <p class="section-label">Selected Service</p>
     <ul class="plain-list">
       <li>Area Chair, NeurIPS</li>
-      <li>Co-organizer, World Modeling Workshop, ECCV</li>
-      <li>Book Reviewer, Cambridge University Press</li>
       <li>
-        Guest Lecturer, AI Learning Alliance
-        <span class="item-desc">The AILA program brings graduate-level machine learning education to Historically Black Colleges and Universities.</span>
+        Reviewer, Conferences
+        <span class="item-desc">NeurIPS &middot; ICLR &middot; ICML &middot; CVPR &middot; ICCV &middot; ECCV &middot; AAAI &middot; AISTATS &middot; IFAC World Congress</span>
       </li>
       <li>
-        Program Lead, Meta AI Mentorship Program
-        <span class="item-desc">The AIM program offers doctoral students at the UC Berkeley, the University of Washington, Mila, and New York University the opportunity to apply for two-year research visits at Meta.</span>
+        Reviewer, Journals
+        <span class="item-desc">Science &middot; SIAM Journal on Optimization &middot; TMLR &middot; Automatica &middot; IEEE Transactions on Automatic Control &middot; IEEE Transactions on Pattern Analysis and Machine Intelligence &middot; IEEE Transactions on Control of Network Systems &middot; IEEE Transactions on Signal Processing &middot; IEEE Transactions on Signal and Information Processing over Networks &middot; IEEE Signal Processing Magazine &middot; Journal of Artificial Intelligence Research &middot; ReScience</span>
+      </li>
+      <li>
+        Reviewer, Books
+        <span class="item-desc">Cambridge University Press &middot; Manning Publications</span>
+      </li>
+      <li>
+        Organizer, Workshops
+        <span class="item-desc">World Modeling Workshop, ECCV &middot; World Models for the Future of Autonomy, CVPR</span>
+      </li>
+      <li>
+        Lead, Meta AIM Program
+        <span class="item-desc">The Meta AI Mentorship program offers doctoral students at UC Berkeley, the University of Washington, Mila, and New York University the opportunity to apply for two-year research visits at Meta.</span>
       </li>
     </ul>
   </section>
 
-  <!-- Quote -->
-  <div class="quote-strip">
-    <div class="quote-strip-inner">
-      <blockquote>
-        <span>We're all here on this earth to help others; what on earth the others are here for, I have no idea.</span>
-        <cite>&mdash;&thinsp;W.H. Auden</cite>
-      </blockquote>
-    </div>
-  </div>
-
-
   <!-- Publications -->
   <section class="section" id="pubs">
     <p class="section-label">Selected Publications</p>
-    <div class="stale-note">
-      Visit <a href="https://scholar.google.com/citations?user=gcQTTvkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> for full list of up-to-date publications.
-    </div>
+    <p class="pub-note">
+      See <a href="https://scholar.google.com/citations?user=gcQTTvkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> for full list of up-to-date publications.
+    </p>
 
     <div class="pub-list">
-
       <!-- V-JEPA 2 -->
       <div class="pub-item">
         <div class="pub-body">
@@ -792,8 +687,57 @@
             </a>
           </p>
           <p class="pub-authors">
-            <strong>M. Assran</strong>, A. Bardes, D. Fan, Q. Garrido, R. Howes, M. Komeili, M. Muckley, A. Rizvi, C. Roberts, K. Sinha, A. Zholus, &hellip;, Y. LeCun, M. Rabbat, N. Ballas
+            <strong>M. Assran</strong>, A. Bardes, D. Fan, Q. Garrido, &hellip;, Y. LeCun, M. Rabbat, N. Ballas
           </p>
+          <p class="pub-links">[<a href="https://arxiv.org/abs/2506.09985" target="_blank" rel="noopener">paper</a>] [<a href="https://github.com/facebookresearch/vjepa2" target="_blank" rel="noopener">code</a>]</p>
+        </div>
+      </div>
+
+      <!-- V-JEPA 1 / Revisiting Feature Prediction -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">TMLR 2024</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2404.08471" target="_blank" rel="noopener">
+              Revisiting Feature Prediction for Learning Visual Representations from Video
+            </a>
+          </p>
+          <p class="pub-authors">
+            A. Bardes, Q. Garrido, J. Ponce, X. Chen, M. Rabbat, Y. LeCun, <strong>*M. Assran</strong>, *N. Ballas<span class="pub-footnote">* Co-last authors</span>
+          </p>
+          <p class="pub-links">[<a href="https://arxiv.org/abs/2404.08471" target="_blank" rel="noopener">paper</a>] [<a href="https://github.com/facebookresearch/jepa" target="_blank" rel="noopener">code</a>]</p>
+        </div>
+      </div>
+
+      <!-- IWM -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">ICML 2024</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2403.00504" target="_blank" rel="noopener">
+              Learning and Leveraging World Models in Visual Representation Learning
+            </a>
+          </p>
+          <p class="pub-authors">
+            Q. Garrido, <strong>M. Assran</strong>, N. Ballas, A. Bardes, L. Najman, Y. LeCun
+          </p>
+          <p class="pub-links">[<a href="https://arxiv.org/abs/2403.00504" target="_blank" rel="noopener">paper</a>]</p>
+        </div>
+      </div>
+
+      <!-- DINOv2 -->
+      <div class="pub-item">
+        <div class="pub-body">
+          <p class="pub-venue">TMLR 2024</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2304.07193" target="_blank" rel="noopener">
+              DINOv2: Learning Robust Visual Features without Supervision
+            </a>
+          </p>
+          <p class="pub-authors">
+            M. Oquab, T. Darcet, T. Moutakanni, H. Vo, &hellip;, <strong>M. Assran</strong>, N. Ballas, &hellip;, P. Bojanowski
+          </p>
+          <p class="pub-links">[<a href="https://arxiv.org/abs/2304.07193" target="_blank" rel="noopener">paper</a>] [<a href="https://github.com/facebookresearch/dinov2" target="_blank" rel="noopener">code</a>]</p>
         </div>
       </div>
 
@@ -811,51 +755,7 @@
           <p class="pub-authors">
             <strong>M. Assran</strong>, Q. Duval, I. Misra, P. Bojanowski, P. Vincent, M. Rabbat, Y. LeCun, N. Ballas
           </p>
-        </div>
-      </div>
-
-      <!-- V-JEPA 1 / Revisiting Feature Prediction -->
-      <div class="pub-item">
-        <div class="pub-body">
-          <p class="pub-venue">TMLR 2024</p>
-          <p class="pub-title">
-            <a href="https://arxiv.org/abs/2404.08471" target="_blank" rel="noopener">
-              Revisiting Feature Prediction for Learning Visual Representations from Video
-            </a>
-          </p>
-          <p class="pub-authors">
-            A. Bardes, Q. Garrido, J. Ponce, X. Chen, M. Rabbat, Y. LeCun, <strong>*M. Assran</strong>, *N. Ballas
-          </p>
-        </div>
-      </div>
-
-      <!-- IWM -->
-      <div class="pub-item">
-        <div class="pub-body">
-          <p class="pub-venue">ICML 2024</p>
-          <p class="pub-title">
-            <a href="https://arxiv.org/abs/2403.00504" target="_blank" rel="noopener">
-              Learning and Leveraging World Models in Visual Representation Learning
-            </a>
-          </p>
-          <p class="pub-authors">
-            Q. Garrido, <strong>M. Assran</strong>, N. Ballas, A. Bardes, L. Najman, Y. LeCun
-          </p>
-        </div>
-      </div>
-
-      <!-- DINOv2 -->
-      <div class="pub-item">
-        <div class="pub-body">
-          <p class="pub-venue">TMLR 2024</p>
-          <p class="pub-title">
-            <a href="https://arxiv.org/abs/2304.07193" target="_blank" rel="noopener">
-              DINOv2: Learning Robust Visual Features without Supervision
-            </a>
-          </p>
-          <p class="pub-authors">
-            M. Oquab, T. Darcet, T. Moutakanni, H. Vo, &hellip;, <strong>M. Assran</strong>, N. Ballas, &hellip;, P. Bojanowski
-          </p>
+          <p class="pub-links">[<a href="https://arxiv.org/abs/2301.08243" target="_blank" rel="noopener">paper</a>] [<a href="https://github.com/facebookresearch/ijepa" target="_blank" rel="noopener">code</a>]</p>
         </div>
       </div>
 
@@ -871,6 +771,7 @@
           <p class="pub-authors">
             <strong>M. Assran</strong>, R. Balestriero, Q. Duval, F. Bordes, I. Misra, P. Bojanowski, P. Vincent, M. Rabbat, N. Ballas
           </p>
+          <p class="pub-links">[<a href="https://arxiv.org/abs/2210.07277" target="_blank" rel="noopener">paper</a>]</p>
         </div>
       </div>
 
@@ -887,6 +788,7 @@
             <strong>M. Assran</strong>, M. Caron, I. Misra, P. Bojanowski, F. Bordes,
             P. Vincent, A. Joulin, M. Rabbat, N. Ballas
           </p>
+          <p class="pub-links">[<a href="https://arxiv.org/abs/2204.07141" target="_blank" rel="noopener">paper</a>] [<a href="https://github.com/facebookresearch/msn" target="_blank" rel="noopener">code</a>]</p>
         </div>
       </div>
 
@@ -904,8 +806,9 @@
           </p>
           <p class="pub-authors">
             <strong>M. Assran</strong>, M. Caron, I. Misra, P. Bojanowski, A. Joulin,
-            *N. Ballas, *M. Rabbat
+            N. Ballas, M. Rabbat
           </p>
+          <p class="pub-links">[<a href="https://arxiv.org/abs/2104.13963" target="_blank" rel="noopener">paper</a>] [<a href="https://github.com/facebookresearch/suncet" target="_blank" rel="noopener">code</a>]</p>
         </div>
       </div>
 
@@ -919,8 +822,9 @@
             </a>
           </p>
           <p class="pub-authors">
-            <strong>M. Assran</strong>, A. Aytekin, H. Feyzmahdavian, M. Johansson, M. Rabbat
+            <strong>M. Assran</strong>, M. Rabbat
           </p>
+          <p class="pub-links">[<a href="https://arxiv.org/abs/2002.12414" target="_blank" rel="noopener">paper</a>]</p>
         </div>
       </div>
 
@@ -936,6 +840,7 @@
           <p class="pub-authors">
             <strong>M. Assran</strong>, J. Romoff, N. Ballas, J. Pineau, M. Rabbat
           </p>
+          <p class="pub-links">[<a href="https://arxiv.org/abs/1906.04585" target="_blank" rel="noopener">paper</a>] [<a href="https://github.com/facebookresearch/gala" target="_blank" rel="noopener">code</a>]</p>
         </div>
       </div>
 
@@ -951,78 +856,78 @@
           <p class="pub-authors">
             <strong>M. Assran</strong>, N. Loizou, N. Ballas, M. Rabbat
           </p>
+          <p class="pub-links">[<a href="https://arxiv.org/abs/1811.10792" target="_blank" rel="noopener">paper</a>] [<a href="https://github.com/facebookresearch/stochastic_gradient_push" target="_blank" rel="noopener">code</a>]</p>
         </div>
       </div>
 
     </div>
+  </section>
+
+  <!-- Invited Talks -->
+  <section class="section" id="talks">
+    <p class="section-label">Invited Talks</p>
+
+    <p class="sub-label">Upcoming</p>
+    <ul class="plain-list">
+      <li>Northeastern University, Multimodal Video Understanding Seminar (2026)</li>
+      <li>Keynote, Workshop on WORLD: World Representation for Learning and Decision, ICLR (2027)</li>
+      <li>Keynote, Workshop on Scientific World Models, ICLR (2027)</li>
+      <li>Keynote, Workshop on New Trends in AI-Generated Media and Security, CVPR (2027)</li>
+      <li>Keynote, Workshop on World Models and Agents for Physical AI, CVPR (2027)</li>
+    </ul>
+
+    <p class="sub-label">Selected Previous</p>
+    <ul class="plain-list">
+      <li><a href="https://tedai-vienna.ted.com/speakers-2026/mido-assran">TED AI Vienna</a> (2026)</li>
+      <li>World Modeling Workshop, Mila Quebec AI Institute (2026) [<a href="https://www.youtube.com/live/7Gyuar7nMz0" target="_blank" rel="noopener">recording</a>]</li>
+      <li>Keynote, Workshop on World Models: Understanding, Modelling and Scaling, ICLR (2026) [<a href="https://slideslive.com/39064496/selfsupervised-representation-learning-for-world-modeling-vjepa2" target="_blank" rel="noopener">recording</a>]</li>
+      <li>Carnegie Mellon University, Computer Vision, Language Understanding and Robotics Seminar (2023)</li>
+      <li>Georgia Institute of Technology, AILA Program (2023)</li>
+      <li>New York University, CILVR Seminar (2022)</li>
+      <li>Columbia University, VIGR Seminar (2022)</li>
+    </ul>
+
+    <p class="sub-label">Podcasts</p>
+    <ul class="plain-list">
+      <li>The TWIML AI Podcast, &ldquo;V-JEPA: AI Reasoning from a Non-Generative Architecture&rdquo; (2024) [<a href="https://twimlai.com/podcast/twimlai/v-jepa-ai-reasoning-from-a-non-generative-architecture" target="_blank" rel="noopener">episode</a>]</li>
+    </ul>
   </section>
 
   <!-- Graduate Students -->
   <section class="section" id="students">
     <p class="section-label has-note">Doctoral Students Co-Advised</p>
     <p class="section-note">Co-advised alongside each student's academic advisor.</p>
-    <div class="students-grid">
-
-      <div class="student-item">
-        <div class="student-initials" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></div>
-        <div class="student-info">
-          <p class="student-name">Gaoyue Zhou</p>
-          <p class="student-meta">PhD · NYU · 2025&ndash;2026</p>
-          <p class="student-topic">Academic advisor(s): Lerrel Pinto and Yann LeCun</p>
-        </div>
-      </div>
-
-      <div class="student-item">
-        <div class="student-initials" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></div>
-        <div class="student-info">
-          <p class="student-name">Emily Kaczmarek</p>
-          <p class="student-meta">PhD · McGill/Mila · 2025&ndash;2026</p>
-          <p class="student-topic">Academic advisor(s): Tal Arbel</p>
-        </div>
-      </div>
-
-      <div class="student-item">
-        <div class="student-initials" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></div>
-        <div class="student-info">
-          <p class="student-name">Wancong Zhang</p>
-          <p class="student-meta">PhD · NYU · 2025</p>
-          <p class="student-topic">Academic advisor(s): Yann LeCun</p>
-        </div>
-      </div>
-
-      <div class="student-item">
-        <div class="student-initials" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></div>
-        <div class="student-info">
-          <p class="student-name">Artem Zholus</p>
-          <p class="student-meta">PhD · UdeM/Mila · 2024&ndash;2026</p>
-          <p class="student-topic">Academic advisor(s): Sarath Chander</p>
-        </div>
-      </div>
-
-      <div class="student-item">
-        <div class="student-initials" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></div>
-        <div class="student-info">
-          <p class="student-name">Marcel Hussing</p>
-          <p class="student-meta">PhD · UPenn · 2024</p>
-          <p class="student-topic">Academic advisor(s): Eric Eaton</p>
-        </div>
-      </div>
-
-      <div class="student-item">
-        <div class="student-initials" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></div>
-        <div class="student-info">
-          <p class="student-name">Benno Krojer</p>
-          <p class="student-meta">PhD · McGill/Mila · 2024</p>
-          <p class="student-topic">Academic advisor(s): Siva Reddy</p>
-        </div>
-      </div>
-
-    </div>
+    <ul class="plain-list">
+      <li>
+        Gaoyue Zhou, PhD, NYU (2025&ndash;2026)
+        <span class="item-desc">Academic advisors: Lerrel Pinto and Yann LeCun</span>
+      </li>
+      <li>
+        Emily Kaczmarek, PhD, McGill/Mila (2025&ndash;2026)
+        <span class="item-desc">Academic advisor: Tal Arbel</span>
+      </li>
+      <li>
+        Wancong Zhang, PhD, NYU (2025)
+        <span class="item-desc">Academic advisor: Yann LeCun</span>
+      </li>
+      <li>
+        Artem Zholus, PhD, UdeM/Mila (2024&ndash;2026)
+        <span class="item-desc">Academic advisor: Sarath Chandar</span>
+      </li>
+      <li>
+        Marcel Hussing, PhD, UPenn (2024)
+        <span class="item-desc">Academic advisor: Eric Eaton</span>
+      </li>
+      <li>
+        Benno Krojer, PhD, McGill/Mila (2024)
+        <span class="item-desc">Academic advisor: Siva Reddy</span>
+      </li>
+    </ul>
   </section>
 
   <!-- Open-Source Code -->
   <section class="section" id="code">
-    <p class="section-label">Open-Source Code</p>
+    <p class="section-label">Open-Source Research Code</p>
     <div class="code-grid">
 
       <div class="code-item">
@@ -1031,7 +936,7 @@
           <span class="star-badge" id="stars-vjepa2"></span>
           <span class="fork-badge" id="forks-vjepa2"></span>
         </p>
-        <p class="pub-title" style="font-weight:400;font-size:15px;color:var(--ink-muted);margin-top:4px;">Official codebase for V-JEPA 2, a self-supervised video world model for understanding, prediction, and planning.</p>
+        <p class="code-desc">Official codebase for V-JEPA 2, a self-supervised video world model for understanding, prediction, and planning.</p>
       </div>
 
       <div class="code-item">
@@ -1040,7 +945,7 @@
           <span class="star-badge" id="stars-ijepa"></span>
           <span class="fork-badge" id="forks-ijepa"></span>
         </p>
-        <p class="pub-title" style="font-weight:400;font-size:15px;color:var(--ink-muted);margin-top:4px;">Official codebase for I-JEPA, a non-generative approach for self-supervised learning from images.</p>
+        <p class="code-desc">Official codebase for I-JEPA, a non-generative approach for self-supervised learning from images.</p>
       </div>
 
       <div class="code-item">
@@ -1049,7 +954,7 @@
           <span class="star-badge" id="stars-jepa"></span>
           <span class="fork-badge" id="forks-jepa"></span>
         </p>
-        <p class="pub-title" style="font-weight:400;font-size:15px;color:var(--ink-muted);margin-top:4px;">Official codebase for V-JEPA, a method for self-supervised learning of visual representations from video.</p>
+        <p class="code-desc">Official codebase for V-JEPA, a method for self-supervised learning of visual representations from video.</p>
       </div>
 
       <div class="code-item">
@@ -1058,7 +963,7 @@
           <span class="star-badge" id="stars-msn"></span>
           <span class="fork-badge" id="forks-msn"></span>
         </p>
-        <p class="pub-title" style="font-weight:400;font-size:15px;color:var(--ink-muted);margin-top:4px;">Official codebase for Masked Siamese Networks, a self-supervised learning framework for label-efficient image classification.</p>
+        <p class="code-desc">Official codebase for Masked Siamese Networks, a self-supervised learning framework for label-efficient image classification.</p>
       </div>
 
       <div class="code-item">
@@ -1067,7 +972,7 @@
           <span class="star-badge" id="stars-suncet"></span>
           <span class="fork-badge" id="forks-suncet"></span>
         </p>
-        <p class="pub-title" style="font-weight:400;font-size:15px;color:var(--ink-muted);margin-top:4px;">Official codebase for PAWS and SuNCEt, semi-supervised methods for learning visual features with limited labels.</p>
+        <p class="code-desc">Official codebase for PAWS and SuNCEt, semi-supervised methods for learning visual features with limited labels.</p>
       </div>
 
       <div class="code-item">
@@ -1076,7 +981,7 @@
           <span class="star-badge" id="stars-stochastic_gradient_push"></span>
           <span class="fork-badge" id="forks-stochastic_gradient_push"></span>
         </p>
-        <p class="pub-title" style="font-weight:400;font-size:15px;color:var(--ink-muted);margin-top:4px;">Official codebase for Stochastic Gradient Push, a method for distributed deep learning over peer-to-peer networks.</p>
+        <p class="code-desc">Official codebase for Stochastic Gradient Push, a method for distributed deep learning over peer-to-peer networks.</p>
       </div>
 
 
@@ -1087,11 +992,11 @@
   <footer class="footer">
     <div class="footer-inner">
       <span>Mahmoud Assran</span>
-      <span>Montreal, QC &mdash; AMI</span>
+      <span>Montreal, QC &mdash; AMI Labs</span>
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     (function () {
       var repos = [
         'facebookresearch/vjepa2',
