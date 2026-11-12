@@ -105,23 +105,44 @@
 
     .nav-links a:hover { color: var(--accent); }
 
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: 0;
+      padding: 4px 0;
+      font-family: var(--serif);
+      font-size: 16px;
+      color: var(--ink-muted);
+      cursor: pointer;
+    }
+    .nav-toggle:hover { color: var(--accent); }
+
     /* ─── Hero ─── */
     .hero {
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 72px 40px 60px;
+      padding: 64px 40px 56px;
       display: grid;
-      grid-template-columns: 1fr 240px;
-      gap: 48px;
-      align-items: start;
+      grid-template-columns: 210px 1fr;
+      grid-template-areas:
+        "photo head"
+        "body  body";
+      column-gap: 40px;
+      row-gap: 36px;
+      align-items: center;
     }
+    .hero-photo { grid-area: photo; }
+    .hero-head  { grid-area: head; }
+    .hero-body  { grid-area: body; }
 
     .hero-text h1 {
-      font-size: 44px;
-      font-weight: 400;
-      line-height: 1.1;
-      margin-bottom: 8px;
-      letter-spacing: -0.015em;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 4px;
+      letter-spacing: 0;
     }
 
     .affil {
@@ -144,8 +165,9 @@
     .affil .affil-prev a { color: var(--ink-faint); }
 
     .affil .affil-email {
-      margin-top: 6px;
-      font-size: 15.5px;
+      margin-top: 8px;
+      font-family: var(--mono);
+      font-size: 13.5px;
       color: var(--ink-faint);
     }
 
@@ -153,7 +175,7 @@
       font-size: 17px;
       line-height: 1.6;
       color: var(--ink-muted);
-      max-width: 520px;
+      max-width: 680px;
       margin-bottom: 12px;
     }
 
@@ -205,27 +227,27 @@
     .hero-text .media-note a:hover { color: var(--accent); }
 
     .hero-links {
-      margin-bottom: 26px;
       display: flex;
-      gap: 22px;
       flex-wrap: wrap;
       align-items: center;
+      font-size: 16.5px;
     }
-
     .hero-links a {
       font-family: var(--serif);
-      font-size: 16px;
       color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 1px;
-      transition: opacity 0.15s;
+      text-underline-offset: 3px;
+    }
+    .hero-links a:hover { text-decoration: underline; }
+    .hero-links a + a::before {
+      content: "\00B7";
+      display: inline-block;
+      margin: 0 10px;
+      color: var(--ink-faint);
     }
 
-    .hero-links a:hover { opacity: 0.65; }
-
     .hero-photo {
-      width: 240px;
+      width: 210px;
       aspect-ratio: 3 / 4;
       overflow: hidden;
       border: 1px solid var(--rule);
@@ -238,7 +260,6 @@
       height: 100%;
       object-fit: cover;
       object-position: center top;
-      filter: saturate(0.85);
       display: block;
     }
 
@@ -283,12 +304,12 @@
 
     /* ─── Quote ─── */
     .hero-quote {
-      margin-top: 32px;
+      margin-top: 28px;
       font-size: 16px;
       font-style: italic;
       line-height: 1.5;
       color: var(--ink-faint);
-      max-width: 520px;
+      max-width: 680px;
       text-wrap: balance;
     }
 
@@ -516,32 +537,47 @@
     @media (max-width: 680px) {
 
       /* Nav — hide text links, show hamburger-free condensed version */
-      .nav-inner { padding: 12px 20px; }
-      .nav-links { gap: 12px; }
-      .nav-links a { font-size: 14px; }
+      .nav-inner { padding: 12px 20px; position: relative; }
+      .nav-toggle { display: inline-flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        padding: 4px 0 8px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--rule);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
+      }
+      .nav.open .nav-links { display: flex; }
+      .nav-links a {
+        display: block;
+        padding: 9px 20px;
+        font-size: 16.5px;
+      }
 
       /* Hero — stack vertically, photo on top */
       .hero {
         grid-template-columns: 1fr;
+        grid-template-areas:
+          "photo"
+          "head"
+          "body";
         padding: 36px 20px 40px;
-        gap: 24px;
+        row-gap: 20px;
       }
 
-      .hero-photo {
-        width: 180px;
-        order: -1;
-      }
+      .hero-photo { width: 160px; }
 
-      .hero-text h1 { font-size: 32px; }
+      .hero-text h1 { font-size: 30px; }
       .affil { font-size: 16px; }
       .hero-text .bio { font-size: 16px; }
 
-      .hero-links {
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-
-      .hero-links a { font-size: 15px; }
+      .hero-links { font-size: 15.5px; }
+      .hero-links a + a::before { margin: 0 7px; }
 
       /* Sections */
       .section { padding: 40px 20px; }
@@ -574,8 +610,7 @@
 
     /* Extra small — very narrow phones */
     @media (max-width: 400px) {
-      .nav-links { gap: 8px; }
-      .nav-links li:nth-child(n+4) { display: none; }
+
       .hero-text h1 { font-size: 28px; }
     }
   </style>
@@ -587,7 +622,10 @@
     <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="nav-inner">
         <a class="nav-name" href="#about">Mahmoud Assran</a>
-        <ul class="nav-links">
+        <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg width="20" height="14" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" stroke="currentColor" stroke-width="1.4"/></svg>
+        </button>
+        <ul class="nav-links" id="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#service">Service</a></li>
           <li><a href="#pubs">Publications</a></li>
@@ -601,7 +639,10 @@
 
   <!-- Hero -->
   <section class="hero" id="about" aria-label="About">
-    <div class="hero-text">
+    <div class="hero-photo">
+      <img src="mido.jpg" alt="Mahmoud (Mido) Assran" />
+    </div>
+    <div class="hero-text hero-head">
       <h1>Mahmoud Assran</h1>
       <div class="affil">
         <p>Scientist, Member of Technical Staff, <a href="https://amilabs.xyz/">AMI&nbsp;Labs</a></p>
@@ -613,6 +654,8 @@
         <a href="https://github.com/MidoAssran" target="_blank" rel="noopener">GitHub</a>
         <a href="https://ca.linkedin.com/in/midoassran" target="_blank" rel="noopener">LinkedIn</a>
       </div>
+    </div>
+    <div class="hero-text hero-body">
       <p class="bio">
         I am a Scientist and Member of Technical Staff on the founding team of <a href="https://amilabs.xyz/">AMI&nbsp;Labs</a>.
         Previously, I was a Research Scientist at Meta in <a href="https://ai.facebook.com/people/mido-assran/">Fundamental AI Research (FAIR)</a>.
@@ -633,9 +676,6 @@
         &ldquo;We&rsquo;re all here on this earth to help others; what on earth the others are here for, I have no idea.&rdquo;
         <cite>&mdash;&thinsp;W.&thinsp;H. Auden</cite>
       </blockquote>
-    </div>
-    <div class="hero-photo">
-      <img src="mido.jpg" alt="Mahmoud (Mido) Assran" />
     </div>
   </section>
 
@@ -869,7 +909,7 @@
 
     <p class="sub-label">Upcoming</p>
     <ul class="plain-list">
-      <li>Northeastern University, Multimodal Video Understanding Seminar (2026)</li>
+      <li>Guest Lecture, Northeastern University, Multimodal Video Understanding Seminar (2026)</li>
       <li>Keynote, Workshop on WORLD: World Representation for Learning and Decision, ICLR (2027)</li>
       <li>Keynote, Workshop on Scientific World Models, ICLR (2027)</li>
       <li>Keynote, Workshop on New Trends in AI-Generated Media and Security, CVPR (2027)</li>
@@ -882,7 +922,7 @@
       <li>World Modeling Workshop, Mila Quebec AI Institute (2026) [<a href="https://www.youtube.com/live/7Gyuar7nMz0" target="_blank" rel="noopener">recording</a>]</li>
       <li>Keynote, Workshop on World Models: Understanding, Modelling and Scaling, ICLR (2026) [<a href="https://slideslive.com/39064496/selfsupervised-representation-learning-for-world-modeling-vjepa2" target="_blank" rel="noopener">recording</a>]</li>
       <li>Carnegie Mellon University, Computer Vision, Language Understanding and Robotics Seminar (2023)</li>
-      <li>Georgia Institute of Technology, AILA Program (2023)</li>
+      <li>Guest Lecture, Georgia Institute of Technology, AILA (2023)</li>
       <li>New York University, CILVR Seminar (2022)</li>
       <li>Columbia University, VIGR Seminar (2022)</li>
     </ul>
@@ -997,6 +1037,24 @@
   </footer>
 
   <script>
+    (function () {
+      var nav = document.querySelector('.nav');
+      var btn = nav.querySelector('.nav-toggle');
+      function setOpen(open) {
+        nav.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', String(open));
+      }
+      btn.addEventListener('click', function () {
+        setOpen(!nav.classList.contains('open'));
+      });
+      nav.querySelectorAll('.nav-links a').forEach(function (a) {
+        a.addEventListener('click', function () { setOpen(false); });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+    })();
+
     (function () {
       var repos = [
         'facebookresearch/vjepa2',
